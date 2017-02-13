@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
+{% block html_lang %}{{ page.lang }}{% endblock %}
+{% block meta %}
+    {% if page.author %}
+        <meta name="author" content="{{ page.author }}" />
+    {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endif %}
+    {% if page.summary %}
+        <meta name="description" content="{{ page.summary|striptags|escape }}" />
+    {% endif %}
+{% endblock %}
+{% block opengraph %}
+    {% if OPEN_GRAPH_FB_APP_ID %}
+        <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+    {% endif %}
+    <meta property="og:site_name" content="{{ SITENAME }}" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ page.title|striptags|escape }}"/>
+    <meta property="og:url" content="{{ SITEURL }}/{{ page.url }}"/>
+    <meta property="og:description" content="{{ page.summary|striptags|escape }}" />
+    {% if page.og_image %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/{{ page.og_image }}"/>
+    {% elif OPEN_GRAPH_IMAGE %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+    {% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+    <ol class="breadcrumb">
+        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+	  {% if page.url %}
+        <li class="active">{{ page.title }}</li>
+	  {% endif %}
+    </ol>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section id="content" class="body">
+        {% if page.title %}
+        <h1 class="entry-title">{{ page.title }}</h1>
+        {% endif %}
+        {% import 'includes/translations.html' as translations with context %}
+        {{ translations.translations_for(page) }}
+        {% if PDF_PROCESSOR %}
+            <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
+                get the pdf
+            </a>
+        {% endif %}
+        <div class="entry-content">
+            {{ page.content }}
+            {% if page.comments == 'enabled' %}
+                {% include 'includes/comments.html' %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+    {% if page.sidebar %}
+        <div id="sidebar" class='page-sidebar'>
+            <aside>
+                <section class="well well-sm">
+                    <ul class="list-group">    
+                        <li class="list-group-item">
+                            <a data-name="{{ EMAIL_NAME }}" data-domain="{{ EMAIL_DOMAIN }}" data-tld="{{ EMAIL_EXT }}" href="#" class="cryptedmail" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld"><i class="fa fa-envelope-square fa-lg"></i> </a></span></h4>
+                        </li>
+                        {% if SOCIAL %}
+                            {% for s in SOCIAL %}
+                                {% if s[2] %}
+                                    {% set name_sanitized = s[2]|lower|replace('+','-plus')|replace(' ','-') %}
+                                {% else %}
+                                    {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
+                                {% endif %}
+                                {% if name_sanitized in ['flickr', 'slideshare', 'spotify', 'stack-overflow', 'weibo'] %}
+                                    {% set iconattributes = '"fa fa-' ~ name_sanitized ~ ' fa-lg"' %}
+                                {% else %}
+                                    {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
+                                {% endif %}
+                            <li class="list-group-item"><a href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    {% endif %}
+{% endblock %}

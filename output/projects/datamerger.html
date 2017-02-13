@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Datamerger - Dr. D</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://dsict.localhost/projects/datamerger">
+
+        <meta name="author" content="Daniel Schreij" />
+        <meta name="description" content="GUI tool for merging tabular data of various formats" />
+
+        <meta property="og:site_name" content="Dr. D" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Datamerger"/>
+        <meta property="og:url" content="http://dsict.localhost/projects/datamerger"/>
+        <meta property="og:description" content="GUI tool for merging tabular data of various formats"/>
+        <meta property="article:published_time" content="2016-07-21" />
+            <meta property="article:section" content="projects" />
+            <meta property="article:author" content="Daniel Schreij" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://dsict.localhost/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="http://dsict.localhost/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://dsict.localhost/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://dsict.localhost/theme/css/style.css" type="text/css"/>
+        <link href="http://dsict.localhost/theme/css/custom.css" rel="stylesheet">
+
+
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- <div class="fader"></div> -->
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://dsict.localhost/" class="navbar-brand">
+Dr. D            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li>
+                    <a href="/index.html">Blog</a></li>
+                    <li 
+                        class="active">
+                    <a href="/projects.html">Projects</a></li>
+                    <li>
+                    <a href="/bio.html">Bio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+    <div id="article-banner" class="container">
+        <header class="page-header">
+            <h1 class='entry-title white'>
+                <a 
+                    href="http://dsict.localhost/projects/datamerger"
+                    rel="bookmark"
+                    title="Permalink to Datamerger">
+                    Datamerger
+                </a>
+            </h1>
+        </header>
+    </div>
+        <div 
+            id='article-banner-image'
+            class='full-width absolute backdrop hidden-xs hidden-sm hidden-md'
+            style='background-image: url("/images/projects/DatamergerHeader.jpg")'
+        >
+            <div class="fader"></div>
+        </div>
+<!-- End Banner -->
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-lg-9 opaque" >
+            <div style="min-height: 65vh">
+    <section id="content">
+        <article>
+            <div class="entry-content content-padding">
+                <p>Datamerger is a small tool built with <a href="https://riverbankcomputing.com/software/pyqt/intro">PyQt</a> that can merge separate spreadsheets into one large spreadsheet. While doing so, it takes column names into account, and therefore can correct for small inconsistenties between the spreadsheets to be merged (e.g. different column order, missing columns in some sheets). It is therefore important that each file to be merged contains a header, which is a row of textual labels at the top each column to identify the data in the rows below. Datamerger can read and write several formats: comma separated value lists (.csv), Excel 97-2003 (.xls) and Excel 2007 and higher (.xlsx)</p>
+<p><img alt="Datamerger" src="http://dsict.localhost/images/projects/DatamergerScreenshot.png"></p>
+            </div>
+        </article>
+    </section>
+            </div>
+        </div>
+        <div class="col-lg-3 opaque">
+    <div id="sidebar" class="sidebar-info sidebar-margin">
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" href="https://github.com/dschreij/Datamerger" target="_SELF">
+                <i class='fa fa-github'></i> Github</a>
+            </div>
+           
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 
+         <a data-name="dschreij" data-domain="gmail" data-tld="com" href="#" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld">
+            Daniel Schreij
+         </a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://dsict.localhost/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://dsict.localhost/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://dsict.localhost/theme/js/respond.min.js"></script>
+
+    <script src="http://dsict.localhost/theme/js/bodypadding.js"></script>
+
+
+
+<script type="text/javascript">
+
+// Enable tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+// Create a scrollspy for the TOC
+var headings = $('#content').find('h2');
+// Only show contents panel if headings were found, and if comments is not the
+// only heading.
+if(headings && headings.length > 1){
+    i = 1;
+    headings.each(function(){
+        $(this).attr('id', 'sub'+i++);
+    });
+
+    var links = [];
+    headings.clone().each(function(){
+        var currItem = $(this)
+        var a = currItem.contents().wrap('<a></a>').parent();
+        a.attr('href','#'+currItem.attr('id'));
+        links.push(a.wrap('<li></li>').parent());
+    });
+    // Place extracted links in content panel
+    $('#article-toc').find('.nav').html(links);
+
+    // Correct for fixed navbar at top. Scrolling position will be too low
+    // in this case when a link in the content panel is clicked.
+    var offset = 80;
+    $('.panel-body .nav li a').click(function(event) {
+        console.log('Clicked ' + $(this));
+        event.preventDefault();
+        $($(this).attr('href'))[0].scrollIntoView();
+        // Need to add 1px for correct display in content pane
+        scrollBy(0, -offset+1);
+    });
+
+    // Add scrollspy necessities to DOM
+    $('body').scrollspy({ 
+        target: '#article-toc',
+        offset: offset 
+    });
+    // Update the scrollspy, just to be safe
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this).scrollspy('refresh')
+    });
+
+}else{
+    // Hide the article TOC panel if no headings were found
+    $('#article-toc').css('display','none');
+}
+
+</script>
+</body>
+</html>

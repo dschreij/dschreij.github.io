@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Creating a Mac OS X app from an anaconda environment - Dr. D</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://dsict.localhost/how-to/package-anaconda-environments-as-apps">
+
+        <meta name="author" content="Daniel Schreij" />
+        <meta name="keywords" content="Anaconda,Python,Mac OS X,Packaging" />
+        <meta name="description" content="This short guide describes a way to package a Python program as a Mac OS X app using environments in the Anaconda Python distribution." />
+
+        <meta property="og:site_name" content="Dr. D" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Creating a Mac OS X app from an anaconda environment"/>
+        <meta property="og:url" content="http://dsict.localhost/how-to/package-anaconda-environments-as-apps"/>
+        <meta property="og:description" content="This short guide describes a way to package a Python program as a Mac OS X app using environments in the Anaconda Python distribution."/>
+        <meta property="article:published_time" content="2017-02-06" />
+            <meta property="article:section" content="How-to" />
+            <meta property="article:tag" content="Anaconda" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Mac OS X" />
+            <meta property="article:tag" content="Packaging" />
+            <meta property="article:author" content="Daniel Schreij" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://dsict.localhost/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="http://dsict.localhost/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://dsict.localhost/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://dsict.localhost/theme/css/style.css" type="text/css"/>
+        <link href="http://dsict.localhost/theme/css/custom.css" rel="stylesheet">
+
+
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- <div class="fader"></div> -->
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://dsict.localhost/" class="navbar-brand">
+Dr. D            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li 
+                        class="active">
+                    <a href="/index.html">Blog</a></li>
+                    <li>
+                    <a href="/projects.html">Projects</a></li>
+                    <li>
+                    <a href="/bio.html">Bio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+    <div id="article-banner" class="container">
+        <header class="page-header">
+            <h1 class='entry-title white'>
+                <a 
+                    href="http://dsict.localhost/how-to/package-anaconda-environments-as-apps"
+                    rel="bookmark"
+                    title="Permalink to Creating a Mac OS X app from an anaconda environment">
+                    Creating a Mac OS X app from an anaconda environment
+                </a>
+            </h1>
+        </header>
+    </div>
+        <div 
+            id='article-banner-image'
+            class='full-width absolute backdrop hidden-xs hidden-sm hidden-md'
+            style='background-image: url("/images/blog/apple-gear.jpg")'
+        >
+            <div class="fader"></div>
+        </div>
+<!-- End Banner -->
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-lg-9 opaque" >
+            <div style="min-height: 65vh">
+    <section id="content">
+        <article>
+            <div class="entry-content content-padding">
+                <p>Once you have created an application that you regard as useful to the larger public, you probably want to package it as a distributable. This enables users to simply install your program on their system without having the hassle of setting up an environment with all dependency libraries that your app requires to run. These should all be packaged together with your program in the distributable package. On the Mac distibutables are often provided as apps compressed in disk images (.dmg files), on Windows they often are a single-file installer (.exe, .msi, etc). Distributables can make the life of people (especially the less tech-savvy ones) who want to use your program a lot easier.</p>
+<p>Many programming languages offer out-of-the-box tools for creating distributables, but not Python, which is in its essence not designed to be packaged. Programs such as <a href="http://www.py2exe.org/">py2exe</a> (for windows), <a href="https://pythonhosted.org/py2app/">py2app</a> (for Mac) or <a href="http://www.pyinstaller.org/">PyInstaller</a> (for both) have been created to get this job done, and even though they often do it well, they also frequently break down, spitting out cryptical error messages that in no way helped me solving the problems that they were bumping into. Especially when your package needs to contain more complex libraries such as PyQt, the chance of breakage increases dramatically.</p>
+<p>Another promising candidate is <a href="http://pyqt.sourceforge.net/Docs/pyqtdeploy/">pyqtdeploy</a> but I found it really complex to set up when I gave it a try (although admittedly, I haven't really spent a lot of time on it yet). As I understand it, pyqtdeploy creates a distributable by building everything completely from source (even the python interpreter itself). It converts all python modules to C++ code, so that everything can be compiled to a native application. This makes it possible to also deploy your app to platforms such as Android and iOS. Of course, this is only useful if you use PyQt in your application to begin with, so for smaller, simpler apps using this method seems to be overkill.</p>
+<p>I was curious if I could find another, very simple, solution for packaging Python apps and I found it in <a href="https://www.continuum.io/downloads">Anaconda</a> (or <a href="http://conda.pydata.org/miniconda.html">Miniconda</a> which is the slimmed down version). For those who don't know Anaconda: it is a science-focused Python distribution created by <a href="https://www.continuum.io/">Continuum.io</a> that has an extensive set of tools to install and manage Python packages (like pip, but better in my opinion). One of the other major strenghts of Anaconda is the easiness with which you can create and manage virtual environments. Each of these virtual environments should in fact be regarded as a small independent anaconda installation by itself. The biggest plus is that <em>most</em> of the libraries that Python apps depend on are contained in the environment; not only the Python interpreter itself, but also non-Python ones such as Qt, sqlite, OpenSSL, you name it. Anaconda environments are already isolated from the rest of the OS and only marginally depend on external libraries; often only low-level libraries that are provided by the OS itself. In a sense, Anaconda environments are already half-way being a distributable. </p>
+<p>Below I describe how to perform the last step of transforming an Anaconda environment into a fully working Mac OS X app, and this is easier than you might think. As an example, I use my own experience of creating an app for the <a href="http://osdoc.cogsci.nl">OpenSesame experiment builder</a> with this method. Needless to say, you'll have to change all references to OpenSesame to ones applicable to your own project.</p>
+<p>A <strong>small disclaimer</strong> before we start: This way of creating an app will work, but it probably violates <em>all</em> rules that Apple poses for an app to be allowed into the app store. If you want your app to eventually end up there, you will have to make sure it adheres to <a href="https://developer.apple.com/app-store/review/guidelines/">Apple's guidelines</a>, regarding sandboxing, code signing, and so on. I have never tried passing the App Store review process with an app created the way I describe here, so I can't say at which points it violates the guidelines, but I highly doubt the app would be accepted without quite some extra work.</p>
+<h2>Create an Anaconda environment and add your app</h2>
+<p>When anaconda or miniconda is installed on your system, you should have access to the <code>conda</code> command from your terminal. You should be able to create a new environment like this:</p>
+<div class="highlight"><pre><span></span>conda create -n OpenSesame python
+</pre></div>
+
+
+<p>Choose <code>y</code> when you are asked to install the listed packages. I am not going to dive into the specifics of creating virtual environments with conda (more about that can be found <a href="http://conda.pydata.org/docs/using/envs.html">here</a>), but suffice to say that the above command creates a new environment with the name <em>OpenSesame</em> (specified after the -n flag) and installs python and its dependencies as the only packages in it. If your program has more dependencies, <a href="http://conda.pydata.org/docs/using/pkgs.html">this is how you can install them using conda</a>.</p>
+<p>The next step is to add your program/python module to the environment. You have two options for doing so. </p>
+<p>The first option is to simply copy your home-cooked python module somewhere into the environment folder, preferably the root. Anaconda environments are located in the <code>envs</code> subfolder of your main anaconda folder, which in turn can usually be found inside your home folder. For example, if you have created an environment named <code>MyEnv</code>, you will find it at <code>~/anaconda/envs/MyEnv</code> (or <code>~/miniconda/envs/MyEnv</code>). Once you have copied the folder containing your program's files into this environment, you are done for this step.</p>
+<p>The second option that is cleaner and more elegant (you wouldn't say I have a preference would you?) is to create a setup.py script for your app that, when run with <code>python setup.py install</code>, installs your program's componentes at the conventional places in the environment. Instructions on how to create such a setup script can be found <a href="https://pythonhosted.org/an_example_pypi_project/setuptools.html">in the Python documentation</a> or <a href="http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/quickstart.html">here</a>.</p>
+<p>To get back to our OpenSesame example, a simplified version of its setup.py script looks like:</p>
+<div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s2">&quot;python-opensesame&quot;</span><span class="p">,</span>
+    <span class="c1"># ... Ommitted for brevity ...</span>
+    <span class="n">scripts</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;opensesame&#39;</span><span class="p">,</span> <span class="s1">&#39;opensesamerun&#39;</span><span class="p">],</span>
+    <span class="c1"># ... Ommitted for brevity ...</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;openexp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;libopensesame&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;libqtopensesame&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="c1"># ... Ommitted for brevity ...</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>You can find the full version <a href="https://github.com/smathot/OpenSesame/blob/master/setup-mac.py">here</a> if you'd rather see that. </p>
+<p>The important variables here are <code>packages</code>, which contains the folders of your module that will be copied to the site-packages folder of python in your environment, and <code>scripts</code> which contains the files with which your program (or parts thereof) can be started (i.e. the entry point of your program). The files specified at <code>scripts</code> will be copied to the bin/ folder of the anaconda environment. </p>
+<p>To give an example, the OpenSesame entry point script merely contains:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#-*- coding:utf-8 -*-</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">libqtopensesame</span> <span class="kn">import</span> <span class="n">__main__</span>
+    <span class="n">__main__</span><span class="o">.</span><span class="n">opensesame</span><span class="p">()</span>
+</pre></div>
+
+
+<p>You might have noticed the <code>.py</code> extensions are missing from files that we specified at <code>scripts</code>. By specifying <code>#!/usr/bin/env python</code> at the very first line of the file, your OS recognizes it as a python file even if you leave away the <code>.py</code> extension.</p>
+<p>Don't forget to activate your environment before you install your app. Otherwise your app will install into the main anaconda installation. You can activate environments by calling the <code>source activate &lt;environment-name&gt;</code> command. For example:</p>
+<div class="highlight"><pre><span></span>source activate OpenSesame
+</pre></div>
+
+
+<p>If all goes well, a <code>[OpenSesame]</code> label should be prepended in front of your terminal prompt. Now you can call:</p>
+<div class="highlight"><pre><span></span>python setup.py install
+</pre></div>
+
+
+<p>to install everything. If you want to exit the virtual environment again, you can do so by simply calling</p>
+<div class="highlight"><pre><span></span>source deactivate
+</pre></div>
+
+
+<p>After this step, the environment plus your app are ready to be packaged into an OS X app. </p>
+<h2>Create the .app framework</h2>
+<p>You wouldn't know unless you are a (fanatic) terminal user, but a Mac OS X app is nothing more than a folder that has .app as extension. The internal structure and contents of this folder are bound to some specifications: </p>
+<ol>
+<li>One thing that always needs to be there is the <strong>Contents/MacOS</strong> folder which contains the script or executable file that starts your application. The name of this file should be the same as the one of your app, minus the .app extension.</li>
+<li>An <em>Info.plist</em> file, located at <strong>Contents/Info.plist</strong>, which contains extra information about the app (author, version, etc.), If this file is not present when the app is started for the first time, MacOS will create a default one for you, but it is so generic that it often leaves much to be desired.</li>
+<li>A <strong>Contents/Resources</strong> folder, which contains all other files your app depends on, such as images or sounds, but they can be virtually anything, such as a complete anaconda environment, as you will see.</li>
+</ol>
+<p>So, the basic structure of our OpenSesame app looks like this:</p>
+<div class="highlight"><pre><span></span>OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+</pre></div>
+
+
+<p>We'll leave these two files (OpenSesame and Info.plist) empty for now.</p>
+<p>Not to sound pedantic, but be sure to create the .app folder at a different location than inside the Anaconda environment you are going to package.</p>
+<h2>Copy the Anaconda environment</h2>
+<p>Now that you have the app skeleton all set up, you can copy the anaconda environment into it. You can copy the contents of the environment folder entirely to the <code>Resources</code> folder of your app. In our example case, I also named my virtual environment <em>OpenSesame</em>, which resulted in the command:</p>
+<div class="highlight"><pre><span></span>cp -R ~/anaconda/envs/Opensesame/* ~/app-output/OpenSesame.app/Contents/Resources/
+</pre></div>
+
+
+<p>where app-output is the folder in which I created the app skeleton for the OpenSesame.app in this example. You can of course also just drag and drop all files using Finder if you like, although it skips hidden files and folders, so the safest way is to just copy everything using the <code>cp</code> command in the terminal (although hidden items are not really used in anaconda environments as far as I know).</p>
+<p>If everything went ok, your app structure should look like this:</p>
+<div class="highlight"><pre><span></span>OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+            bin/
+            conda-meta/
+            imports/
+            include/
+            lib/
+            mkspecs/
+            plugins/
+            python
+            share/
+            ssl/
+</pre></div>
+
+
+<p>There might be some deviations, because a few conda packages can install some of their dependencies at the root level of the environment, or things have changed in conda versions that were released later than this article. Furthermore, the folder containing your apps modules should also be present if you have chosen option 1 of integrating your app into the environment (i.e. copy everything directly into the environment, instead of using setup script). Thus, if things look a little bit differently than shown above, don't fret: as long as you have copied all content of the target environment's folder, you should be ok.</p>
+<p>Now everything is placed where it should be, there are two things left to do.</p>
+<h2>Create the app's entry script</h2>
+<p>At this point, it is time to write the contents of the executable in <em>Contents/MacOS</em>, in this example case <em>Contents/MacOS/OpenSesame</em>. This will be a simple bash script that calls the Python interpreter inside the anaconda environment that you just copied, and passes it the path to the entry point  of your program as an argument. So if you chose option one to integrate your program into the Anaconda environment, the contents should look (something) like this:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="nv">script_dir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">$script_dir</span>/Resources/bin/python <span class="nv">$script_dir</span>/Resources/MyApp/myapp.py <span class="nv">$@</span>
+</pre></div>
+
+
+<p>The second line simply saves the location of your <em>Contents</em> folder by going up a folder (we are in Contents/MacOS now). The third line calls the python interpreter inside the .app from this location, with your program's entry-point script as an argument. The <code>$@</code> at the end of this line is supposed to pass all other command line arguments to your script as well, but this hasn't worked for me. Most likely OS X wraps extra arguments with a <code>--args</code> flag, but I'm not sure.</p>
+<p>If you installed the app using a <code>setup.py</code> script, you should let this argument point to your entry script in the bin/ folder. In the context of our example OpenSesame app, this would become:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+<span class="nv">script_dir</span><span class="o">=</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="k">$(</span>dirname <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">$script_dir</span>/Resources/bin/python <span class="nv">$script_dir</span>/Resources/bin/opensesame <span class="nv">$@</span>
+</pre></div>
+
+
+<p>Of course you need to replace <code>opensesame</code> with the name of your program.</p>
+<p>Don't forget to make the entry script <em>executable</em> by issuing the command</p>
+<div class="highlight"><pre><span></span>chmod a+x &lt;extecutable_file&gt;
+</pre></div>
+
+
+<p>so in our example case that would be the command</p>
+<div class="highlight"><pre><span></span>chmod a+x OpenSesame.app/Contents/MacOS/OpenSesame
+</pre></div>
+
+
+<p>from the folder in which OpenSesame.app is located.</p>
+<p>You can already try out if it works, by double-clicking your app in finder, or starting the app from the command line by issuing the command</p>
+<div class="highlight"><pre><span></span>OpenSesame.app/Contents/MacOS/OpenSesame
+</pre></div>
+
+
+<p>from the terminal, with the current working directory being te folder in which the .app is located. This is useful for debugging, for instance if your app seems to launch but closes shortly after with no further notification. When started from the terminal, any error output is printed there.</p>
+<h2>Create the contents of Info.plist</h2>
+<p>A Mac OS X app is required to have an <code>Info.plist</code> file, which contains extra information about the app, such as its version, author, and so on. There are a couple of fields that are mandatory, but a lot of them are optional. You'll do yourself a favor however to put as much information about your app in the Info.plist as you can. For instance, if you specify the file extensions that your app can handle (not mandatory), OS X will automatically let these filetypes be opened by your app if a user double clicks such files in Finder (although I have neither had much success with this: my app starts, but the file is not loaded. Probably this is because OS X works with events that signal a file needs to be opened, instead of passing the path simply as a command line argument on opening). If the extension is not unique to your app, it will appear in the list of apps that could open the file, if you click on it and select "Open With" in Finder. Pretty neat.</p>
+<p>Don't be fooled by the .plist extension; it is just an .xml file that you can open with any text editor. Here is what the one I generated for OpenSesame looks like:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span>
+<span class="nt">&lt;plist</span> <span class="na">version=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleDevelopmentRegion<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>en<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleDisplayName<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>OpenSesame<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleDocumentTypes<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+        <span class="nt">&lt;dict&gt;</span>
+            <span class="nt">&lt;key&gt;</span>CFBundleTypeIconFile<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>opensesame.icns<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>CFBundleTypeName<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>OpenSesame experiment<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>CFBundleTypeRole<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>Editor<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>LSHandlerRank<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>Owner<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>LSItemContentTypes<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;array&gt;</span>
+                <span class="nt">&lt;string&gt;</span>nl.cogsci.osdoc.osexp<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;/array&gt;</span>
+            <span class="nt">&lt;key&gt;</span>NSExportableTypes<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;array&gt;</span>
+                <span class="nt">&lt;string&gt;</span>nl.cogsci.osdoc.osexp<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;/array&gt;</span>
+        <span class="nt">&lt;/dict&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleExecutable<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>OpenSesame<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleIconFile<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>opensesame.icns<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleIdentifier<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>nl.cogsci.osdoc<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleInfoDictionaryVersion<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>6.0<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleName<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>OpenSesame<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundlePackageType<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>APPL<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleShortVersionString<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>3.1.6<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleSignature<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>????<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>CFBundleVersion<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>3.1.6 Jazzy James<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>LSMinimumSystemVersion<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>10.7.0<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>LSUIElement<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;false/&gt;</span>
+    <span class="nt">&lt;key&gt;</span>NSAppTransportSecurity<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;dict&gt;</span>
+        <span class="nt">&lt;key&gt;</span>NSAllowsArbitraryLoads<span class="nt">&lt;/key&gt;</span>
+        <span class="nt">&lt;true/&gt;</span>
+    <span class="nt">&lt;/dict&gt;</span>
+    <span class="nt">&lt;key&gt;</span>NSHighResolutionCapable<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;true/&gt;</span>
+    <span class="nt">&lt;key&gt;</span>NSHumanReadableCopyright<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>© 2017 Sebastiaan Mathôt<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>NSMainNibFile<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>MainMenu<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>NSPrincipalClass<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;string&gt;</span>NSApplication<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;key&gt;</span>UTExportedTypeDeclarations<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+        <span class="nt">&lt;dict&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UTTypeConformsTo<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;array&gt;</span>
+                <span class="nt">&lt;string&gt;</span>org.gnu.gnu-zip-archive<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;/array&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UTTypeDescription<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>OpenSesame experiment<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UTTypeIdentifier<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;string&gt;</span>nl.cogsci.osdoc.osexp<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;key&gt;</span>UTTypeTagSpecification<span class="nt">&lt;/key&gt;</span>
+            <span class="nt">&lt;dict&gt;</span>
+                <span class="nt">&lt;key&gt;</span>public.filename-extension<span class="nt">&lt;/key&gt;</span>
+                <span class="nt">&lt;string&gt;</span>osexp<span class="nt">&lt;/string&gt;</span>
+                <span class="nt">&lt;key&gt;</span>public.mime-type<span class="nt">&lt;/key&gt;</span>
+                <span class="nt">&lt;string&gt;</span>application/gzip<span class="nt">&lt;/string&gt;</span>
+            <span class="nt">&lt;/dict&gt;</span>
+        <span class="nt">&lt;/dict&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+<span class="nt">&lt;/dict&gt;</span>
+<span class="nt">&lt;/plist&gt;</span>
+</pre></div>
+
+
+<p>Each configurable option consists of variable name between the <code>&lt;key&gt;</code> tags, and its value between the <code>&lt;string&gt;</code> tags. There are a lot of options (most of which have self-explanatory variable names), so I'm not going to elaborate on them any further here. You can find a full list of options and their descriptions <a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-SW1">at Apple's documentation site</a>. The ones that you definitely want to specify are the entries that correctly identify your app (<code>CFBundleName</code>, <code>CFBundleDisplayName</code>, <code>CFBundleVersion</code>, <code>CFBundleShortVersionString</code>) and the ones that identify you as the author of the app (<code>NSHumanReadableCopyright</code>, <code>CFBundleIdentifier</code>). If you don't want the name of the executable to be the same as that of the app (I can't think of any reason), you can specify a different name with <code>CFBundleExecutable</code>. The final field that you probably want to specify is <code>CFBundleIconFile</code>, which specifies the path to your icon file (.icns) as resolved from the Resources folder. If you eventually want to get your app into the app store, it's a start to make sure that your icon has the required minimal resolution of 1024x1024px.</p>
+<p>There is a python-based tool called <a href="https://bitbucket.org/wooster/biplist">biplist</a> which makes generating and editing .plist files a lot easier, so that may be worth a look too.</p>
+<h2>Clean up (optional)</h2>
+<p>Of course, there are some files that we don't need when the anaconda environment is packaged inside our app, so the next step will be removing those files. This step is entirely optional. The risk of actually breaking things is quite large, because I'm not 100% certain that all files and folders I remove here are never needed (but this action never broke my apps though, so that might be regarded a small reassurance). Nevertheless, removing unnecessary item can reduce the size of your app quite a bit, so it is probably worth experimenting with.</p>
+<p>Let's start with the /bin folder. If you navigate into this folder inside the Resources folder of the app, you will see that there are a lot of other apps and excutables there; some of which have a considerable file size. Generally you won't need the majority of the files you find here (except the ones necessary to run Python of course), but to be safe I usually leave most of them in there and just focus on the really large files which blow up the size of the app. If your app has Qt as a dependency, you are free to delete all the qt apps that you find in the bin folder (an .app inside in .app is completely useless), in addition to large non-app executables such as <code>qmake</code>, <code>qdoc3</code>, <code>qt3to4</code>.</p>
+<p>Next, we are going to delete all files an folders that are only relevant when you are using anaconda to build Python modules or 'conda packages', which you probably are not going to do when the evironment is encapsulated in an app. Two of such folders are <code>mkspecs</code> (build information for qt) and <code>include</code> (C header files of modules present in the environment). The other one is <code>conda-meta</code>. If you remove these folders, you are left with</p>
+<div class="highlight"><pre><span></span>OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+            bin/
+            imports/
+            lib/
+            plugins/
+            python
+            share/
+            ssl/
+</pre></div>
+
+
+<p>Possibly you could slim down your package even further, but that is up to you. The remaining files and folders probably are not really that large, so it's likely not the effort to spend too much time on this.</p>
+<h2>Le moment suprême</h2>
+<p>That's all there is to it. Double click the app in Finder and see if it works. If nothing happened, or you receive an error message, you can always start your app from the terminal and see if it prints any error message there:</p>
+<div class="highlight"><pre><span></span>~/app-output/OpenSesame.app/Contents/MacOS/OpenSesame
+</pre></div>
+
+
+<p>Your app should now be up and running. I'm curious what you think of this transparent and easy, but very unconventional way of creating an app.</p>
+<h2>Why not create a script for all this?</h2>
+<p>Well, I have. You can find a (configurable and customizable) script that does everything described above (and more) <a href="https://github.com/dschreij/anaconda-env-to-osx-app">on github</a>. In the future, I hope to provide better documentation on its usage soon (famous last words...), but at the moment it is still evolving too quickly and changes a lot each time I work on it. You should therefore regard the script as a 'proof of concept' and working example than something that is directly ready to use.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+            </div>
+        </div>
+        <div class="col-lg-3 opaque">
+     <div id="sidebar" class="sidebar-info sidebar-margin">
+<footer class="post-info">
+    <p><span class="published">
+        <i class="fa fa-calendar sidebar-icon" data-toggle="tooltip" data-placement="left" title="Published"></i>
+        <time datetime="2017-02-06T08:39:00+01:00"> Mon 06 February 2017</time>
+    </span></p>
+
+
+
+            <p><a href="http://dsict.localhost/category/how-to.html">
+            <i class="fa fa-folder-open sidebar-icon" data-toggle="tooltip" data-placement="left" title="Category"></i>
+            How-to</a></p>
+           <!--  <span class="label label-default">Category</span>
+            <a href="http://dsict.localhost/category/how-to.html">How-to</a> -->
+
+
+<i class="fa fa-tags sidebar-icon" data-toggle="tooltip" data-placement="left" title="Tags"></i>
+	<a href="http://dsict.localhost/tag/anaconda.html">Anaconda</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/python.html">Python</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/mac-os-x.html">Mac OS X</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/packaging.html">Packaging</a><br>
+    
+</footer><!-- /.post-info -->    </div>
+<div id="article-toc" class="panel panel-default" data-spy="affix" data-offset-top="500">
+	<div class="panel-heading">
+	You are here:
+	</div>
+	<div class="panel-body">
+		 <ul class="nav nav-pills nav-stacked">
+		 </ul>
+	</div>
+</div>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 
+         <a data-name="dschreij" data-domain="gmail" data-tld="com" href="#" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld">
+            Daniel Schreij
+         </a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://dsict.localhost/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://dsict.localhost/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://dsict.localhost/theme/js/respond.min.js"></script>
+
+    <script src="http://dsict.localhost/theme/js/bodypadding.js"></script>
+
+
+
+<script type="text/javascript">
+
+// Enable tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+// Create a scrollspy for the TOC
+var headings = $('#content').find('h2');
+// Only show contents panel if headings were found, and if comments is not the
+// only heading.
+if(headings && headings.length > 1){
+    i = 1;
+    headings.each(function(){
+        $(this).attr('id', 'sub'+i++);
+    });
+
+    var links = [];
+    headings.clone().each(function(){
+        var currItem = $(this)
+        var a = currItem.contents().wrap('<a></a>').parent();
+        a.attr('href','#'+currItem.attr('id'));
+        links.push(a.wrap('<li></li>').parent());
+    });
+    // Place extracted links in content panel
+    $('#article-toc').find('.nav').html(links);
+
+    // Correct for fixed navbar at top. Scrolling position will be too low
+    // in this case when a link in the content panel is clicked.
+    var offset = 80;
+    $('.panel-body .nav li a').click(function(event) {
+        console.log('Clicked ' + $(this));
+        event.preventDefault();
+        $($(this).attr('href'))[0].scrollIntoView();
+        // Need to add 1px for correct display in content pane
+        scrollBy(0, -offset+1);
+    });
+
+    // Add scrollspy necessities to DOM
+    $('body').scrollspy({ 
+        target: '#article-toc',
+        offset: offset 
+    });
+    // Update the scrollspy, just to be safe
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this).scrollspy('refresh')
+    });
+
+}else{
+    // Hide the article TOC panel if no headings were found
+    $('#article-toc').css('display','none');
+}
+
+</script>
+</body>
+</html>

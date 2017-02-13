@@ -1,0 +1,109 @@
+{% extends "article_list.html" %}
+{% block title %}Projects - {{ SITENAME }}{% endblock %}
+{% block html_lang %}{{ articles.lang }}{% endblock %}
+{% block meta %}
+    {% if articles.author %}
+        <meta name="author" content="{{ articles.author }}" />
+    {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endif %}
+    {% if articles.summary %}
+        <meta name="description" content="{{ page.summary|striptags|escape }}" />
+    {% endif %}
+{% endblock %}
+{% block opengraph %}
+    {% if OPEN_GRAPH_FB_APP_ID %}
+        <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+    {% endif %}
+    <meta property="og:site_name" content="{{ SITENAME }}" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ articles.title|striptags|escape }}"/>
+    <meta property="og:url" content="{{ SITEURL }}/{{ articles.url }}"/>
+    <meta property="og:description" content="{{ articles.summary|striptags|escape }}" />
+    {% if articles.og_image %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/{{ page.og_image }}"/>
+    {% elif OPEN_GRAPH_IMAGE %}
+        <meta property="og:image"
+              content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+    {% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ articles.url }}">
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+    <ol class="breadcrumb">
+        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+	  {% if articles.url %}
+        <li class="active">{{ page_name }}</li>
+	  {% endif %}
+    </ol>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+	<h1 class="entry-title">Projects</h1>
+	<div class="entry-content">
+    {% if PROJECTS_INTRO %}
+	<p>{{ PROJECTS_INTRO }}</p>
+    {% endif %}
+
+    {% if articles %}
+		{% for article in (articles_page.object_list if articles_page else articles) %}
+            {% if article.featured is defined and article.featured == "yes" %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="project" onclick="location.href='{{ SITEURL }}/{{ article.url }}';">
+                        <div class="well" {% if article.metadata.image %}style="background-image: url('{{ article.metadata.image }}')"{% endif %} >
+                            <div class="fader"></div>
+                            <article class="featured">
+                                <p class="lead"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
+                                <div class="summary">{{ article.summary }}</div>   
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+    	{% endfor %}
+	
+    	<div class="row">
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+            {% if not article.featured is defined or article.featured != "yes" %}
+            <div class="col-md-6">
+                <div class="project" onclick="location.href='{{ SITEURL }}/{{ article.url }}';">
+                    <div class="well" {% if article.metadata.image %}style="background-image: url('{{ article.metadata.image }}')"{% endif %}>
+                        <div class="fader"></div>
+                        <article>
+                            <p class="lead"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
+                            <div class="summary">{{ article.summary }}</div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+{% endblock content %}
+
+{% block sidebar %}
+    <div id="sidebar" class='page-sidebar'>
+        <aside>
+            <section class="well well-sm">
+                <ul class="list-group list-group-flush">
+                    {% include 'includes/github.html' %}
+                </ul>
+            </section>
+        </aside>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% include 'includes/github-js.html' %}
+{% endblock %}
+

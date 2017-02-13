@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>What do people look at when they view a painting? - Dr. D</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://dsict.localhost/research/van-gogh-eyetracking-project">
+
+        <meta name="author" content="Daniel Schreij" />
+        <meta name="keywords" content="Perception,Science,Eye tracking,Art" />
+        <meta name="description" content="I was part of this ambitious project in which we used a mobile eye tracker to study what people look at in various van Gogh paintings and shortly describe my experiences." />
+
+        <meta property="og:site_name" content="Dr. D" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="What do people look at when they view a painting?"/>
+        <meta property="og:url" content="http://dsict.localhost/research/van-gogh-eyetracking-project"/>
+        <meta property="og:description" content="I was part of this ambitious project in which we used a mobile eye tracker to study what people look at in various van Gogh paintings and shortly describe my experiences."/>
+        <meta property="article:published_time" content="2017-02-07" />
+            <meta property="article:section" content="Research" />
+            <meta property="article:tag" content="Perception" />
+            <meta property="article:tag" content="Science" />
+            <meta property="article:tag" content="Eye tracking" />
+            <meta property="article:tag" content="Art" />
+            <meta property="article:author" content="Daniel Schreij" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://dsict.localhost/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="http://dsict.localhost/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://dsict.localhost/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://dsict.localhost/theme/css/style.css" type="text/css"/>
+        <link href="http://dsict.localhost/theme/css/custom.css" rel="stylesheet">
+
+
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- <div class="fader"></div> -->
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://dsict.localhost/" class="navbar-brand">
+Dr. D            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li 
+                        class="active">
+                    <a href="/index.html">Blog</a></li>
+                    <li>
+                    <a href="/projects.html">Projects</a></li>
+                    <li>
+                    <a href="/bio.html">Bio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+    <div id="article-banner" class="container">
+        <header class="page-header">
+            <h1 class='entry-title white'>
+                <a 
+                    href="http://dsict.localhost/research/van-gogh-eyetracking-project"
+                    rel="bookmark"
+                    title="Permalink to What do people look at when they view a painting?">
+                    What do people look at when they view a painting?
+                </a>
+            </h1>
+        </header>
+    </div>
+        <div 
+            id='article-banner-image'
+            class='full-width absolute backdrop hidden-xs hidden-sm hidden-md'
+            style='background-image: url("http://www.vupsy.nl/vupsy/wp-content/uploads/2016/09/IMG_2789-e1475228558909-1024x343.jpg")'
+        >
+            <div class="fader"></div>
+        </div>
+<!-- End Banner -->
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-lg-9 opaque" >
+            <div style="min-height: 65vh">
+    <section id="content">
+        <article>
+            <div class="entry-content content-padding">
+                <p>When you view a particular scene or painting, what areas or objects do you fixate your eyes on? Does everyone look at a painting in a different way, or is there some generic pattern or strategy that most of us follow? These questions have kept cognitive psychologists or perception scientists busy for a while now. Most earlier studies into this topic presented images of paintings to participants on a computer screen, while their gaze was tracked with stationary and often bulky eye trackers. These require participants to sit down and keep their head extremely still, because the slightest head movement can throw off the tracker's calibration. And of course, these types of studies need to take place in a lab, because the eye trackers are not easy to carry around.</p>
+<p>This is not really what one would call a natural setting to study viewing behavior in. Normally we have the ability to walk around, and often we also turn our heads in the direction of the things we want to look at. Luckily, light-weight mobile eye trackers have started to hit the market in the last few years and they allow researchers to study participants in less restricted settings. Most of these mobile eye trackers are really expensive (think of $50,000+), but lately some vendors have started to offer options that are quite affordable. One of these is the <a href="https://pupil-labs.com/pupil/">Pupil mobile eyetracker</a>.</p>
+<p><img alt="Screenshot" class="center-block half-width" src="http://dsict.localhost/images/blog/pupil_eyetracker.jpg"></p>
+<p>Its development started out as a project for a Master's thesis at MIT to see if it was feasible to create a cheap mobile eye tracker with components extracted from webcams, but it eventually led to the establishment of the Berlin-based company <a href="https://pupil-labs.com/">Pupil Labs</a>. The Pupil eye tracker can be purchased for between $1,500 and $2,500 and only weighs around 50 grams. It plugs into a laptop with two usb cables (one for the eye camera and one for the camera filming in the direction the wearer is looking at; the more expensive models have both integrated into one usb-connector). The recording software is open-source, well maintained and free to download. The only thing that currently is missing in my opinion is an officially supported software package that helps with quantitative analysis of the recorded data, but probably that is on the company's roadmap somewhere (In the meantime, I wrote <a href="https://github.com/dschreij/PupilEyetrackerAnalysisTools">a small library of my own for this purpose</a>, but haven't maintained it really well). Pupil does however supply software that allows one to visually inspect the recorded data, <a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Player">Pupil Player</a>, which is great (it borders on sci-fi).</p>
+<p>With the pupil eyetracker in our possession at the <a href="http://www.vupsy.nl">Cognitive Psychology department</a> of the <em>Vrije</em> Universiteit of Amsterdam, <a href="https://www.utwente.nl/en/et/vvr/staff/walker/">Francesco Walker</a> came up with a nice idea for a research project. Besides his interest in human perception, he also likes art, so why not combine the two? His suggestion was to use the Pupil to study how people appreciate visual art, or more specifically, look at paintings. He contacted various museums in Amsterdam to propose this project, but only the <a href="https://www.vangoghmuseum.nl/en">Van Gogh Museum</a> (seriously, if you ever visit Amsterdam, don't skip it!) responded and was enthusiastic about it.</p>
+<p>With our team consisting of Francesco, <a href="http://www.vupsy.nl/staff-members/berno-bucker/">Berno Bucker</a>, <a href="http://www.vupsy.nl/staff-members/nicola-c-anderson/">Nicola Andersson</a>, <a href="http://www.vupsy.nl/staff-members/jan-theeuwes/">Prof. Jan Theeuwes</a> and me, we came up with the idea to see if and how background knowledge about a painting changes the way it is viewed. So we first let participants free-view each of 5 different van Gogh paintings for 30 seconds, and after this first phase, we told them more about the background of each painting. We then requested participants to view the same five paintings again for the same amount of time; all the time wearing the Pupil eye tracker that registered their gaze. We were also interested if we could find a difference in viewing behavior between young adults recruited at the university and children that were finishing elementary school during the two phases.</p>
+<p>Now you might think "of course having knowledge about a painting will change the way someone looks at it" or even that people will simply look differently at a painting when they see it for a second time, and you are probably right, but we were particularly interested if a general pattern emerged during second viewing round that was shared by most participants. For instance, if it was told that Van Gogh painted a particular painting while he was heavily depressed, would most participants pay more attention to areas or objects on the painting that may signal his mood, such as cloudy or dark skies?</p>
+<p>The study was challenging to perform, especially since we had to conduct it during the normal opening hours of the museum, while a lot of museum visitors were around that were very intrigued by what we were doing. Luckily this didn't negatively influence data collection and we found some interesting results. In the first phase, the viewing behavior of the children was driven more by properties of the scene, while the adults showed viewing behavior was more goal-driven. So the adults tried to find a purpose to view the paintings with, while the children just looked at areas in the painting that were more salient or conspicuous. In the second phase, the viewing behaviors converged; both groups were looked at the paintings in a more goal-driven fashion.</p>
+<p>Here is a demo video of the study that also shows the abilities of the Pupil Player quite nicely:</p>
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0_KaItdTkEM?rel=0" allowfullscreen></iframe>
+</div>
+
+<p><br/>
+For those who'd like to know more: a paper about this study has been submitted and is currently under review. Once (if...) it gets published, I will try to link it here.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+            </div>
+        </div>
+        <div class="col-lg-3 opaque">
+     <div id="sidebar" class="sidebar-info sidebar-margin">
+<footer class="post-info">
+    <p><span class="published">
+        <i class="fa fa-calendar sidebar-icon" data-toggle="tooltip" data-placement="left" title="Published"></i>
+        <time datetime="2017-02-07T08:39:00+01:00"> Tue 07 February 2017</time>
+    </span></p>
+
+
+
+            <p><a href="http://dsict.localhost/category/research.html">
+            <i class="fa fa-folder-open sidebar-icon" data-toggle="tooltip" data-placement="left" title="Category"></i>
+            Research</a></p>
+           <!--  <span class="label label-default">Category</span>
+            <a href="http://dsict.localhost/category/research.html">Research</a> -->
+
+
+<i class="fa fa-tags sidebar-icon" data-toggle="tooltip" data-placement="left" title="Tags"></i>
+	<a href="http://dsict.localhost/tag/perception.html">Perception</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/science.html">Science</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/eye-tracking.html">Eye tracking</a><br>
+    	<i class='fa sidebar-icon'></i>
+	<a href="http://dsict.localhost/tag/art.html">Art</a><br>
+    
+</footer><!-- /.post-info -->    </div>
+<div id="article-toc" class="panel panel-default" data-spy="affix" data-offset-top="500">
+	<div class="panel-heading">
+	You are here:
+	</div>
+	<div class="panel-body">
+		 <ul class="nav nav-pills nav-stacked">
+		 </ul>
+	</div>
+</div>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 
+         <a data-name="dschreij" data-domain="gmail" data-tld="com" href="#" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld">
+            Daniel Schreij
+         </a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://dsict.localhost/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://dsict.localhost/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://dsict.localhost/theme/js/respond.min.js"></script>
+
+    <script src="http://dsict.localhost/theme/js/bodypadding.js"></script>
+
+
+
+<script type="text/javascript">
+
+// Enable tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+// Create a scrollspy for the TOC
+var headings = $('#content').find('h2');
+// Only show contents panel if headings were found, and if comments is not the
+// only heading.
+if(headings && headings.length > 1){
+    i = 1;
+    headings.each(function(){
+        $(this).attr('id', 'sub'+i++);
+    });
+
+    var links = [];
+    headings.clone().each(function(){
+        var currItem = $(this)
+        var a = currItem.contents().wrap('<a></a>').parent();
+        a.attr('href','#'+currItem.attr('id'));
+        links.push(a.wrap('<li></li>').parent());
+    });
+    // Place extracted links in content panel
+    $('#article-toc').find('.nav').html(links);
+
+    // Correct for fixed navbar at top. Scrolling position will be too low
+    // in this case when a link in the content panel is clicked.
+    var offset = 80;
+    $('.panel-body .nav li a').click(function(event) {
+        console.log('Clicked ' + $(this));
+        event.preventDefault();
+        $($(this).attr('href'))[0].scrollIntoView();
+        // Need to add 1px for correct display in content pane
+        scrollBy(0, -offset+1);
+    });
+
+    // Add scrollspy necessities to DOM
+    $('body').scrollspy({ 
+        target: '#article-toc',
+        offset: offset 
+    });
+    // Update the scrollspy, just to be safe
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this).scrollspy('refresh')
+    });
+
+}else{
+    // Hide the article TOC panel if no headings were found
+    $('#article-toc').css('display','none');
+}
+
+</script>
+</body>
+</html>

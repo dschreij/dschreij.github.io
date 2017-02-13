@@ -1,0 +1,65 @@
+{% extends "article_list.html" %}
+
+{% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
+
+{% block banner %}
+	{% include 'includes/banner.html' %}
+{% endblock %}
+
+{% block content %}
+    {% if WELCOME_MESSAGE %}
+        <p class="lead">{{ WELCOME_MESSAGE }}</p>
+        <hr/>
+    {% endif %}
+    {{ super () }}
+{% endblock %}
+
+{% block sidebar %}
+	{% if not HIDE_SIDEBAR or ABOUT_ME %}
+    <div id="sidebar">
+        <aside>
+            {% if ABOUT_ME %}
+                {% include 'includes/aboutme.html' %}
+            {% endif %}
+            
+            <section class="well well-sm">
+                <ul class="list-group list-group-flush">
+                {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+                <li class="list-group-item">
+                    <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                    <ul class="list-group" id="categories">
+                    {% for cat, null in categories %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ cat.url }}">
+                                <i class="fa fa-folder-open fa-lg"></i> {{ cat }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
+
+                {% if 'tag_cloud' in PLUGINS and DISPLAY_TAGS_ON_SIDEBAR %}
+                    {% if DISPLAY_TAGS_INLINE %}
+                        {% set tags = tag_cloud | sort(attribute='0') %}
+                    {% else %}
+                        {% set tags = tag_cloud | sort(attribute='1') %}
+                    {% endif %}
+                    <li class="list-group-item"><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                        <ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
+                        {% for tag in tags %}
+                            <li class="list-group-item tag-{{ tag.1 }}">
+                                <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                                    {{ tag.0 }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+            </section>
+        </aside>
+    </div>
+    {% endif %}
+{% endblock %}

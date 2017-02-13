@@ -1,0 +1,19 @@
+{% extends "article_list.html" %}
+
+{% block title %}Articles by {{ author }} - {{ SITENAME }}{% endblock %}
+
+{% block breadcrumbs %}
+    {% if True or DISPLAY_BREADCRUMBS %}
+    	<div id='breadcrumb-bar'>
+	    	<div class='container'>
+	    		<div class='row'>
+				    <ol class="breadcrumb">
+			            <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+			            <li><a href="{{ SITEURL }}/{{ AUTHORS_URL|default('authors.html') }}" title="Authors">Authors</a></li>
+			            <li class="active">{{ AUTHOR }}</li>
+				    </ol>
+				</div>
+			</div>
+		</div>
+    {% endif %}
+{% endblock %}

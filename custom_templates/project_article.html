@@ -1,0 +1,33 @@
+{% extends "article.html" %}
+
+{% block content %}
+    <section id="content">
+        <article>
+            <div class="entry-content {% if article.metadata.banner %}content-padding{% endif %}">
+                {{ article.content }}
+            </div>
+        </article>
+    </section>
+{% endblock %}
+
+{% block sidebar %}
+    {% if article.metadata.githublink or article.metadata.doclink %}
+    <div id="sidebar" class="sidebar-info {% if article.metadata.banner %}sidebar-margin{% endif %}">
+        <div class="row">
+            {% if article.metadata.githublink %}
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" href="{{article.metadata.githublink}}" target="_SELF">
+                <i class='fa fa-github'></i> Github</a>
+            </div>
+           
+            {% endif %}
+            {% if article.metadata.doclink %}
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" href="{{article.metadata.doclink}}" target="_SELF">
+                <i class='fa fa-book'></i> Documentation</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

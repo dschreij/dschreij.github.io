@@ -1,0 +1,9 @@
+{% if article.tags %}
+<i class="fa fa-tags sidebar-icon" data-toggle="tooltip" data-placement="left" title="Tags"></i>
+{% for tag in article.tags %}
+	{% if not loop.first %}
+    	<i class='fa sidebar-icon'></i>
+    {% endif %}
+	<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a><br>
+{% endfor %}
+{% endif %}
