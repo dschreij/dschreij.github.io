@@ -130,7 +130,7 @@ article h2 > a{
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
-    font-family: "Helvetica Neue", 'Open Sans Condensed', sans-serif;
+    font-family: "HelveticaNeue-Light", 'Open Sans Condensed', sans-serif;
 }
 
 article h2 > a:hover{
