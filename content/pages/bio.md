@@ -7,12 +7,12 @@ Authors: Daniel Schreij
 
 ![Icon]({filename}/images/Daniel.jpg){.col-md-6 .pull-right}
 
-My name is Daniël Schreij. I like to program comprehensive desktop and web applications, and am fascinated by human cognition and artificial intelligence. When I'm not tinkering with a computer, you can find me outdoors: I love doing all kinds of water sports and going for long hikes at pretty places. I furthermore like to play guitar, photography, and sometimes to crash on my couch and watch a movie or read a book.
+My name is Daniël Schreij. I like to program comprehensive desktop and web applications, and am fascinated by human cognition and artificial intelligence. When I'm not tinkering with a computer, you can find me outdoors: I love doing all kinds of water sports and going for long hikes at pretty places. I furthermore like to play guitar, do photography, and sometimes to crash on my couch and watch a movie or read a book.
 
 ## A brief history...
 My interest in computer science and human cognition led me to study Artificial Intelligence at the Vrije Universiteit Amsterdam. I then became a PhD candidate in the area of Cognitive Psychology under supervision of [Chris Olivers](http://www.vupsy.nl/staff-members/christian-olivers/) and [Jan Theeuwes](http://www.vupsy.nl/staff-members/christian-olivers/). During four years, I studied processes of attention in dynamic scenes and received my degree in January 2012 for my thesis [Attention to Emerging Objects](http://dare.ubvu.vu.nl/handle/1871/32381). 
 
-I continued working as a postdoc for four more years, during which I frequently helped people with programming complex experiments and analysis scripts, and this made me rediscover my passion for writing software. I have henceforth continued my career as a freelance developer with a focus on scientific software. 
+I continued working as a postdoc for four more years, during which I frequently helped people with programming complex experiments and analysis scripts. This made me rediscover my passion for writing software and I have henceforth continued my career as a freelance developer with a focus on scientific software. 
 
 I currently live together with my girlfriend on the Caribbean island Bonaire.
 

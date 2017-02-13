@@ -9,7 +9,7 @@
 
 
 
-<link rel="canonical" href="http://dsict.localhost/research/van-gogh-eyetracking-project">
+<link rel="canonical" href="https://dschreij.github.io/research/van-gogh-eyetracking-project">
 
         <meta name="author" content="Daniel Schreij" />
         <meta name="keywords" content="Perception,Science,Eye tracking,Art" />
@@ -18,7 +18,7 @@
         <meta property="og:site_name" content="Dr. D" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="What do people look at when they view a painting?"/>
-        <meta property="og:url" content="http://dsict.localhost/research/van-gogh-eyetracking-project"/>
+        <meta property="og:url" content="https://dschreij.github.io/research/van-gogh-eyetracking-project"/>
         <meta property="og:description" content="I was part of this ambitious project in which we used a mobile eye tracker to study what people look at in various van Gogh paintings and shortly describe my experiences."/>
         <meta property="article:published_time" content="2017-02-07" />
             <meta property="article:section" content="Research" />
@@ -30,16 +30,20 @@
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://dsict.localhost/theme/css/bootstrap.flatly.min.css" type="text/css"/>
-    <link href="http://dsict.localhost/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://dschreij.github.io/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+    <link href="https://dschreij.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://dsict.localhost/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://dsict.localhost/theme/css/style.css" type="text/css"/>
-        <link href="http://dsict.localhost/theme/css/custom.css" rel="stylesheet">
+    <link href="https://dschreij.github.io/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://dschreij.github.io/theme/css/style.css" type="text/css"/>
+        <link href="https://dschreij.github.io/theme/css/custom.css" rel="stylesheet">
+
+        <link href="https://dschreij.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Dr. D ATOM Feed"/>
 
 
 
-
+        <link href="https://dschreij.github.io/feeds/research.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Dr. D Research ATOM Feed"/>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
 
@@ -56,7 +60,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://dsict.localhost/" class="navbar-brand">
+            <a href="https://dschreij.github.io/" class="navbar-brand">
 Dr. D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -81,7 +85,7 @@ Dr. D            </a>
         <header class="page-header">
             <h1 class='entry-title white'>
                 <a 
-                    href="http://dsict.localhost/research/van-gogh-eyetracking-project"
+                    href="https://dschreij.github.io/research/van-gogh-eyetracking-project"
                     rel="bookmark"
                     title="Permalink to What do people look at when they view a painting?">
                     What do people look at when they view a painting?
@@ -92,7 +96,7 @@ Dr. D            </a>
         <div 
             id='article-banner-image'
             class='full-width absolute backdrop hidden-xs hidden-sm hidden-md'
-            style='background-image: url("http://www.vupsy.nl/vupsy/wp-content/uploads/2016/09/IMG_2789-e1475228558909-1024x343.jpg")'
+            style='background-image: url("/images/blog/van_gogh_eyetracking.jpg")'
         >
             <div class="fader"></div>
         </div>
@@ -104,14 +108,16 @@ Dr. D            </a>
     <section id="content">
         <article>
             <div class="entry-content content-padding">
-                <p>When you view a particular scene or painting, what areas or objects do you fixate your eyes on? Does everyone look at a painting in a different way, or is there some generic pattern or strategy that most of us follow? These questions have kept cognitive psychologists or perception scientists busy for a while now. Most earlier studies into this topic presented images of paintings to participants on a computer screen, while their gaze was tracked with stationary and often bulky eye trackers. These require participants to sit down and keep their head extremely still, because the slightest head movement can throw off the tracker's calibration. And of course, these types of studies need to take place in a lab, because the eye trackers are not easy to carry around.</p>
+                <p>When you look at a particular scene or painting, what areas or objects do you fixate on? Does everyone look at a painting in a different way, or is there some generic pattern or strategy that most of us follow? These questions have kept cognitive psychologists or perception scientists busy many times before. Most earlier studies into this topic presented images of paintings to participants on a computer screen, while their gaze was tracked with stationary and often bulky eye trackers. These require participants to sit down and keep their head extremely still, because the slightest head movement can throw off the tracker's calibration. And of course, these types of studies need to take place in a lab, because the eye trackers are not easy to carry around.</p>
 <p>This is not really what one would call a natural setting to study viewing behavior in. Normally we have the ability to walk around, and often we also turn our heads in the direction of the things we want to look at. Luckily, light-weight mobile eye trackers have started to hit the market in the last few years and they allow researchers to study participants in less restricted settings. Most of these mobile eye trackers are really expensive (think of $50,000+), but lately some vendors have started to offer options that are quite affordable. One of these is the <a href="https://pupil-labs.com/pupil/">Pupil mobile eyetracker</a>.</p>
-<p><img alt="Screenshot" class="center-block half-width" src="http://dsict.localhost/images/blog/pupil_eyetracker.jpg"></p>
-<p>Its development started out as a project for a Master's thesis at MIT to see if it was feasible to create a cheap mobile eye tracker with components extracted from webcams, but it eventually led to the establishment of the Berlin-based company <a href="https://pupil-labs.com/">Pupil Labs</a>. The Pupil eye tracker can be purchased for between $1,500 and $2,500 and only weighs around 50 grams. It plugs into a laptop with two usb cables (one for the eye camera and one for the camera filming in the direction the wearer is looking at; the more expensive models have both integrated into one usb-connector). The recording software is open-source, well maintained and free to download. The only thing that currently is missing in my opinion is an officially supported software package that helps with quantitative analysis of the recorded data, but probably that is on the company's roadmap somewhere (In the meantime, I wrote <a href="https://github.com/dschreij/PupilEyetrackerAnalysisTools">a small library of my own for this purpose</a>, but haven't maintained it really well). Pupil does however supply software that allows one to visually inspect the recorded data, <a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Player">Pupil Player</a>, which is great (it borders on sci-fi).</p>
+<p><img alt="Screenshot" class="center-block half-width" src="https://dschreij.github.io/images/blog/pupil_eyetracker.jpg"></p>
+<p>Its development started out as a project for a Master's thesis at MIT to see if it was feasible to create a cheap mobile eye tracker with components extracted from webcams, but it eventually led to the establishment of the Berlin-based company <a href="https://pupil-labs.com/">Pupil Labs</a>. The Pupil eye tracker can be purchased for between $1,500 and $2,500 and only weighs around 50 grams. It plugs into a laptop with two usb cables (one for the eye camera and one for the camera filming in the direction the wearer is looking at; the more expensive models have both integrated into one usb-connector). The <a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Capture">recording software</a> is open-source, well maintained and free to download. The only thing that is currently missing in my opinion, is an officially supported software package that helps with quantitative analysis of the recorded data, but probably that is on the company's roadmap somewhere (In the meantime, I wrote <a href="https://github.com/dschreij/PupilEyetrackerAnalysisTools">a small library of my own for this purpose</a>, but haven't maintained it really well). Pupil does however supply software that allows one to visually inspect the recorded data, <a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Player">Pupil Player</a>, which is great (it borders on sci-fi).</p>
 <p>With the pupil eyetracker in our possession at the <a href="http://www.vupsy.nl">Cognitive Psychology department</a> of the <em>Vrije</em> Universiteit of Amsterdam, <a href="https://www.utwente.nl/en/et/vvr/staff/walker/">Francesco Walker</a> came up with a nice idea for a research project. Besides his interest in human perception, he also likes art, so why not combine the two? His suggestion was to use the Pupil to study how people appreciate visual art, or more specifically, look at paintings. He contacted various museums in Amsterdam to propose this project, but only the <a href="https://www.vangoghmuseum.nl/en">Van Gogh Museum</a> (seriously, if you ever visit Amsterdam, don't skip it!) responded and was enthusiastic about it.</p>
-<p>With our team consisting of Francesco, <a href="http://www.vupsy.nl/staff-members/berno-bucker/">Berno Bucker</a>, <a href="http://www.vupsy.nl/staff-members/nicola-c-anderson/">Nicola Andersson</a>, <a href="http://www.vupsy.nl/staff-members/jan-theeuwes/">Prof. Jan Theeuwes</a> and me, we came up with the idea to see if and how background knowledge about a painting changes the way it is viewed. So we first let participants free-view each of 5 different van Gogh paintings for 30 seconds, and after this first phase, we told them more about the background of each painting. We then requested participants to view the same five paintings again for the same amount of time; all the time wearing the Pupil eye tracker that registered their gaze. We were also interested if we could find a difference in viewing behavior between young adults recruited at the university and children that were finishing elementary school during the two phases.</p>
-<p>Now you might think "of course having knowledge about a painting will change the way someone looks at it" or even that people will simply look differently at a painting when they see it for a second time, and you are probably right, but we were particularly interested if a general pattern emerged during second viewing round that was shared by most participants. For instance, if it was told that Van Gogh painted a particular painting while he was heavily depressed, would most participants pay more attention to areas or objects on the painting that may signal his mood, such as cloudy or dark skies?</p>
-<p>The study was challenging to perform, especially since we had to conduct it during the normal opening hours of the museum, while a lot of museum visitors were around that were very intrigued by what we were doing. Luckily this didn't negatively influence data collection and we found some interesting results. In the first phase, the viewing behavior of the children was driven more by properties of the scene, while the adults showed viewing behavior was more goal-driven. So the adults tried to find a purpose to view the paintings with, while the children just looked at areas in the painting that were more salient or conspicuous. In the second phase, the viewing behaviors converged; both groups were looked at the paintings in a more goal-driven fashion.</p>
+<p>With our team consisting of Francesco, <a href="http://www.vupsy.nl/staff-members/berno-bucker/">Berno Bucker</a>, <a href="http://www.vupsy.nl/staff-members/nicola-c-anderson/">Nicola Anderson</a>, <a href="http://www.vupsy.nl/staff-members/jan-theeuwes/">Prof. Jan Theeuwes</a> and me, we came up with the idea to see if and how background knowledge about a painting changes the way it is viewed. We first let participants free-view each of 5 different van Gogh paintings for 30 seconds, and after this first phase, we told them more about the background of each painting. We then requested participants to view the same five paintings again for the same amount of time; all the time wearing the Pupil eye tracker that registered their gaze. We were also interested if viewing behavior changed with age, so we recruited two groups of participants: One consisted of young adults recruited at the university and the other of children that were finishing elementary school.</p>
+<p><img alt="Van Gogh Study" src="https://dschreij.github.io/images/blog/van_gogh_eyetracking.jpg"></p>
+<p>Now you might think "of course having knowledge about a painting will change the way someone looks at it" or simply that people will look differently at a painting because they see it for a second time, and you are probably right. However, we were particularly interested if a general pattern in viewing behavior, shared by most participants, would emerge during the second round of viewing. For instance, if participants knew that Van Gogh made a particular painting during one of his depressions, would they tend to pay more attention to areas or objects in the painting that are indirectly indicative of his mood, such as cloudy or dark skies?</p>
+<p>The study was quite challenging to perform, especially since we had to conduct it during the normal opening hours of the museum, while a lot of museum visitors were walking around that were very intrigued by what we were doing. Luckily this didn't negatively impact data collection and we had some interesting findings. In the first phase, the viewing behavior of the children was mostly driven by the properties of the scene, while the adults showed more goal-driven viewing behavior. That is, the adults tried to view the paintings with a purpose, while the children just looked at areas in the painting that were more salient or conspicuous. In the second phase, the viewing behaviors converged; both groups looked at the paintings in a more goal-driven fashion.
+For some these results may be a bit unsurprising, but I think it is quite cool that we have been able to conduct a study with which we collected reliable quantitive data outside of a laboratory and in minimally controlled settings. There is still room for improvement, for instance by eliminating the necessity of the QR-like markers that designate the locations of the paintings in the video feed, but hopefully what will be possible in the near future.</p>
 <p>Here is a demo video of the study that also shows the abilities of the Pupil Player quite nicely:</p>
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0_KaItdTkEM?rel=0" allowfullscreen></iframe>
@@ -121,6 +127,36 @@ Dr. D            </a>
 For those who'd like to know more: a paper about this study has been submitted and is currently under review. Once (if...) it gets published, I will try to link it here.</p>
             </div>
             <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'dsitforscience'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'van-gogh-eyetracking-project';
+                var disqus_url = 'https://dschreij.github.io/research/van-gogh-eyetracking-project';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
         </article>
     </section>
 
@@ -136,21 +172,21 @@ For those who'd like to know more: a paper about this study has been submitted a
 
 
 
-            <p><a href="http://dsict.localhost/category/research.html">
+            <p><a href="https://dschreij.github.io/category/research.html">
             <i class="fa fa-folder-open sidebar-icon" data-toggle="tooltip" data-placement="left" title="Category"></i>
             Research</a></p>
            <!--  <span class="label label-default">Category</span>
-            <a href="http://dsict.localhost/category/research.html">Research</a> -->
+            <a href="https://dschreij.github.io/category/research.html">Research</a> -->
 
 
 <i class="fa fa-tags sidebar-icon" data-toggle="tooltip" data-placement="left" title="Tags"></i>
-	<a href="http://dsict.localhost/tag/perception.html">Perception</a><br>
+	<a href="https://dschreij.github.io/tag/perception.html">Perception</a><br>
     	<i class='fa sidebar-icon'></i>
-	<a href="http://dsict.localhost/tag/science.html">Science</a><br>
+	<a href="https://dschreij.github.io/tag/science.html">Science</a><br>
     	<i class='fa sidebar-icon'></i>
-	<a href="http://dsict.localhost/tag/eye-tracking.html">Eye tracking</a><br>
+	<a href="https://dschreij.github.io/tag/eye-tracking.html">Eye tracking</a><br>
     	<i class='fa sidebar-icon'></i>
-	<a href="http://dsict.localhost/tag/art.html">Art</a><br>
+	<a href="https://dschreij.github.io/tag/art.html">Art</a><br>
     
 </footer><!-- /.post-info -->    </div>
 <div id="article-toc" class="panel panel-default" data-spy="affix" data-offset-top="500">
@@ -180,16 +216,42 @@ For those who'd like to know more: a paper about this study has been submitted a
       </div>
    </div>
 </footer>
-<script src="http://dsict.localhost/theme/js/jquery.min.js"></script>
+<script src="https://dschreij.github.io/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://dsict.localhost/theme/js/bootstrap.min.js"></script>
+<script src="https://dschreij.github.io/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://dsict.localhost/theme/js/respond.min.js"></script>
+<script src="https://dschreij.github.io/theme/js/respond.min.js"></script>
 
-    <script src="http://dsict.localhost/theme/js/bodypadding.js"></script>
+    <script src="https://dschreij.github.io/theme/js/bodypadding.js"></script>
 
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'dsitforscience'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics Universal -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-71223842-3', '');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics Universal Code -->
 
 
 <script type="text/javascript">

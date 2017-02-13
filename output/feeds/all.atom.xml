@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Dr. D</title><link href="https://dschreij.github.io/" rel="alternate"></link><link href="https://dschreij.github.io/feeds/all.atom.xml" rel="self"></link><id>https://dschreij.github.io/</id><updated>2017-02-07T08:39:00+01:00</updated><entry><title>What do people look at when they view a painting?</title><link href="https://dschreij.github.io/research/van-gogh-eyetracking-project" rel="alternate"></link><published>2017-02-07T08:39:00+01:00</published><updated>2017-02-07T08:39:00+01:00</updated><author><name>Daniel Schreij</name></author><id>tag:dschreij.github.io,2017-02-07:/research/van-gogh-eyetracking-project</id><summary type="html">&lt;p&gt;I was part of this ambitious project in which we used a mobile eye tracker to study what people look at in various van Gogh paintings and shortly describe my experiences.&lt;/p&gt;</summary><content type="html">&lt;p&gt;When you look at a particular scene or painting, what areas or objects do you fixate on? Does everyone look at a painting in a different way, or is there some generic pattern or strategy that most of us follow? These questions have kept cognitive psychologists or perception scientists busy many times before. Most earlier studies into this topic presented images of paintings to participants on a computer screen, while their gaze was tracked with stationary and often bulky eye trackers. These require participants to sit down and keep their head extremely still, because the slightest head movement can throw off the tracker's calibration. And of course, these types of studies need to take place in a lab, because the eye trackers are not easy to carry around.&lt;/p&gt;
+&lt;p&gt;This is not really what one would call a natural setting to study viewing behavior in. Normally we have the ability to walk around, and often we also turn our heads in the direction of the things we want to look at. Luckily, light-weight mobile eye trackers have started to hit the market in the last few years and they allow researchers to study participants in less restricted settings. Most of these mobile eye trackers are really expensive (think of $50,000+), but lately some vendors have started to offer options that are quite affordable. One of these is the &lt;a href="https://pupil-labs.com/pupil/"&gt;Pupil mobile eyetracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Screenshot" class="center-block half-width" src="https://dschreij.github.io/images/blog/pupil_eyetracker.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Its development started out as a project for a Master's thesis at MIT to see if it was feasible to create a cheap mobile eye tracker with components extracted from webcams, but it eventually led to the establishment of the Berlin-based company &lt;a href="https://pupil-labs.com/"&gt;Pupil Labs&lt;/a&gt;. The Pupil eye tracker can be purchased for between $1,500 and $2,500 and only weighs around 50 grams. It plugs into a laptop with two usb cables (one for the eye camera and one for the camera filming in the direction the wearer is looking at; the more expensive models have both integrated into one usb-connector). The &lt;a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Capture"&gt;recording software&lt;/a&gt; is open-source, well maintained and free to download. The only thing that is currently missing in my opinion, is an officially supported software package that helps with quantitative analysis of the recorded data, but probably that is on the company's roadmap somewhere (In the meantime, I wrote &lt;a href="https://github.com/dschreij/PupilEyetrackerAnalysisTools"&gt;a small library of my own for this purpose&lt;/a&gt;, but haven't maintained it really well). Pupil does however supply software that allows one to visually inspect the recorded data, &lt;a href="https://github.com/pupil-labs/pupil/wiki/Pupil-Player"&gt;Pupil Player&lt;/a&gt;, which is great (it borders on sci-fi).&lt;/p&gt;
+&lt;p&gt;With the pupil eyetracker in our possession at the &lt;a href="http://www.vupsy.nl"&gt;Cognitive Psychology department&lt;/a&gt; of the &lt;em&gt;Vrije&lt;/em&gt; Universiteit of Amsterdam, &lt;a href="https://www.utwente.nl/en/et/vvr/staff/walker/"&gt;Francesco Walker&lt;/a&gt; came up with a nice idea for a research project. Besides his interest in human perception, he also likes art, so why not combine the two? His suggestion was to use the Pupil to study how people appreciate visual art, or more specifically, look at paintings. He contacted various museums in Amsterdam to propose this project, but only the &lt;a href="https://www.vangoghmuseum.nl/en"&gt;Van Gogh Museum&lt;/a&gt; (seriously, if you ever visit Amsterdam, don't skip it!) responded and was enthusiastic about it.&lt;/p&gt;
+&lt;p&gt;With our team consisting of Francesco, &lt;a href="http://www.vupsy.nl/staff-members/berno-bucker/"&gt;Berno Bucker&lt;/a&gt;, &lt;a href="http://www.vupsy.nl/staff-members/nicola-c-anderson/"&gt;Nicola Anderson&lt;/a&gt;, &lt;a href="http://www.vupsy.nl/staff-members/jan-theeuwes/"&gt;Prof. Jan Theeuwes&lt;/a&gt; and me, we came up with the idea to see if and how background knowledge about a painting changes the way it is viewed. We first let participants free-view each of 5 different van Gogh paintings for 30 seconds, and after this first phase, we told them more about the background of each painting. We then requested participants to view the same five paintings again for the same amount of time; all the time wearing the Pupil eye tracker that registered their gaze. We were also interested if viewing behavior changed with age, so we recruited two groups of participants: One consisted of young adults recruited at the university and the other of children that were finishing elementary school.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Van Gogh Study" src="https://dschreij.github.io/images/blog/van_gogh_eyetracking.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Now you might think "of course having knowledge about a painting will change the way someone looks at it" or simply that people will look differently at a painting because they see it for a second time, and you are probably right. However, we were particularly interested if a general pattern in viewing behavior, shared by most participants, would emerge during the second round of viewing. For instance, if participants knew that Van Gogh made a particular painting during one of his depressions, would they tend to pay more attention to areas or objects in the painting that are indirectly indicative of his mood, such as cloudy or dark skies?&lt;/p&gt;
+&lt;p&gt;The study was quite challenging to perform, especially since we had to conduct it during the normal opening hours of the museum, while a lot of museum visitors were walking around that were very intrigued by what we were doing. Luckily this didn't negatively impact data collection and we had some interesting findings. In the first phase, the viewing behavior of the children was mostly driven by the properties of the scene, while the adults showed more goal-driven viewing behavior. That is, the adults tried to view the paintings with a purpose, while the children just looked at areas in the painting that were more salient or conspicuous. In the second phase, the viewing behaviors converged; both groups looked at the paintings in a more goal-driven fashion.
+For some these results may be a bit unsurprising, but I think it is quite cool that we have been able to conduct a study with which we collected reliable quantitive data outside of a laboratory and in minimally controlled settings. There is still room for improvement, for instance by eliminating the necessity of the QR-like markers that designate the locations of the paintings in the video feed, but hopefully what will be possible in the near future.&lt;/p&gt;
+&lt;p&gt;Here is a demo video of the study that also shows the abilities of the Pupil Player quite nicely:&lt;/p&gt;
+&lt;div class="embed-responsive embed-responsive-16by9"&gt;
+&lt;iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0_KaItdTkEM?rel=0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br/&gt;
+For those who'd like to know more: a paper about this study has been submitted and is currently under review. Once (if...) it gets published, I will try to link it here.&lt;/p&gt;</content><category term="Perception"></category><category term="Science"></category><category term="Eye tracking"></category><category term="Art"></category></entry><entry><title>Creating a Mac OS X app from an anaconda environment</title><link href="https://dschreij.github.io/how-to/package-anaconda-environments-as-apps" rel="alternate"></link><published>2017-02-06T08:39:00+01:00</published><updated>2017-02-06T08:39:00+01:00</updated><author><name>Daniel Schreij</name></author><id>tag:dschreij.github.io,2017-02-06:/how-to/package-anaconda-environments-as-apps</id><summary type="html">&lt;p&gt;This short guide describes a way to package a Python program as a Mac OS X app using environments in the Anaconda Python distribution.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Once you have created an application that you regard as useful to the larger public, you probably want to package it as a distributable. This enables users to simply install your program on their system without having the hassle of setting up an environment with all dependency libraries that your app requires to run. These should all be packaged together with your program in the distributable package. On the Mac distibutables are often provided as apps compressed in disk images (.dmg files), on Windows they often are a single-file installer (.exe, .msi, etc). Distributables can make the life of people (especially the less tech-savvy ones) who want to use your program a lot easier.&lt;/p&gt;
+&lt;p&gt;Many programming languages offer out-of-the-box tools for creating distributables, but not Python, which is in its essence not designed to be packaged. Programs such as &lt;a href="http://www.py2exe.org/"&gt;py2exe&lt;/a&gt; (for windows), &lt;a href="https://pythonhosted.org/py2app/"&gt;py2app&lt;/a&gt; (for Mac) or &lt;a href="http://www.pyinstaller.org/"&gt;PyInstaller&lt;/a&gt; (for both) have been created to get this job done, and even though they often do it well, they also frequently break down, spitting out cryptical error messages that in no way helped me solving the problems that they were bumping into. Especially when your package needs to contain more complex libraries such as PyQt, the chance of breakage increases dramatically.&lt;/p&gt;
+&lt;p&gt;Another promising candidate is &lt;a href="http://pyqt.sourceforge.net/Docs/pyqtdeploy/"&gt;pyqtdeploy&lt;/a&gt; but I found it really complex to set up when I gave it a try (although admittedly, I haven't really spent a lot of time on it yet). As I understand it, pyqtdeploy creates a distributable by building everything completely from source (even the python interpreter itself). It converts all python modules to C++ code, so that everything can be compiled to a native application. This makes it possible to also deploy your app to platforms such as Android and iOS. Of course, this is only useful if you use PyQt in your application to begin with, so for smaller, simpler apps using this method seems to be overkill.&lt;/p&gt;
+&lt;p&gt;I was curious if I could find another, very simple, solution for packaging Python apps and I found it in &lt;a href="https://www.continuum.io/downloads"&gt;Anaconda&lt;/a&gt; (or &lt;a href="http://conda.pydata.org/miniconda.html"&gt;Miniconda&lt;/a&gt; which is the slimmed down version). For those who don't know Anaconda: it is a science-focused Python distribution created by &lt;a href="https://www.continuum.io/"&gt;Continuum.io&lt;/a&gt; that has an extensive set of tools to install and manage Python packages (like pip, but better in my opinion). One of the other major strenghts of Anaconda is the easiness with which you can create and manage virtual environments. Each of these virtual environments should in fact be regarded as a small independent anaconda installation by itself. The biggest plus is that &lt;em&gt;most&lt;/em&gt; of the libraries that Python apps depend on are contained in the environment; not only the Python interpreter itself, but also non-Python ones such as Qt, sqlite, OpenSSL, you name it. Anaconda environments are already isolated from the rest of the OS and only marginally depend on external libraries; often only low-level libraries that are provided by the OS itself. In a sense, Anaconda environments are already half-way being a distributable. &lt;/p&gt;
+&lt;p&gt;Below I describe how to perform the last step of transforming an Anaconda environment into a fully working Mac OS X app, and this is easier than you might think. As an example, I use my own experience of creating an app for the &lt;a href="http://osdoc.cogsci.nl"&gt;OpenSesame experiment builder&lt;/a&gt; with this method. Needless to say, you'll have to change all references to OpenSesame to ones applicable to your own project.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;small disclaimer&lt;/strong&gt; before we start: This way of creating an app will work, but it probably violates &lt;em&gt;all&lt;/em&gt; rules that Apple poses for an app to be allowed into the app store. If you want your app to eventually end up there, you will have to make sure it adheres to &lt;a href="https://developer.apple.com/app-store/review/guidelines/"&gt;Apple's guidelines&lt;/a&gt;, regarding sandboxing, code signing, and so on. I have never tried passing the App Store review process with an app created the way I describe here, so I can't say at which points it violates the guidelines, but I highly doubt the app would be accepted without quite some extra work.&lt;/p&gt;
+&lt;h2&gt;Create an Anaconda environment and add your app&lt;/h2&gt;
+&lt;p&gt;When anaconda or miniconda is installed on your system, you should have access to the &lt;code&gt;conda&lt;/code&gt; command from your terminal. You should be able to create a new environment like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;conda create -n OpenSesame python
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Choose &lt;code&gt;y&lt;/code&gt; when you are asked to install the listed packages. I am not going to dive into the specifics of creating virtual environments with conda (more about that can be found &lt;a href="http://conda.pydata.org/docs/using/envs.html"&gt;here&lt;/a&gt;), but suffice to say that the above command creates a new environment with the name &lt;em&gt;OpenSesame&lt;/em&gt; (specified after the -n flag) and installs python and its dependencies as the only packages in it. If your program has more dependencies, &lt;a href="http://conda.pydata.org/docs/using/pkgs.html"&gt;this is how you can install them using conda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The next step is to add your program/python module to the environment. You have two options for doing so. &lt;/p&gt;
+&lt;p&gt;The first option is to simply copy your home-cooked python module somewhere into the environment folder, preferably the root. Anaconda environments are located in the &lt;code&gt;envs&lt;/code&gt; subfolder of your main anaconda folder, which in turn can usually be found inside your home folder. For example, if you have created an environment named &lt;code&gt;MyEnv&lt;/code&gt;, you will find it at &lt;code&gt;~/anaconda/envs/MyEnv&lt;/code&gt; (or &lt;code&gt;~/miniconda/envs/MyEnv&lt;/code&gt;). Once you have copied the folder containing your program's files into this environment, you are done for this step.&lt;/p&gt;
+&lt;p&gt;The second option that is cleaner and more elegant (you wouldn't say I have a preference would you?) is to create a setup.py script for your app that, when run with &lt;code&gt;python setup.py install&lt;/code&gt;, installs your program's componentes at the conventional places in the environment. Instructions on how to create such a setup script can be found &lt;a href="https://pythonhosted.org/an_example_pypi_project/setuptools.html"&gt;in the Python documentation&lt;/a&gt; or &lt;a href="http://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/quickstart.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To get back to our OpenSesame example, a simplified version of its setup.py script looks like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sa"&gt;u&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python-opensesame&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="c1"&gt;# ... Ommitted for brevity ...&lt;/span&gt;
+    &lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;opensesame&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;opensesamerun&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="c1"&gt;# ... Ommitted for brevity ...&lt;/span&gt;
+    &lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;openexp&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;libopensesame&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;libqtopensesame&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="c1"&gt;# ... Ommitted for brevity ...&lt;/span&gt;
+    &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can find the full version &lt;a href="https://github.com/smathot/OpenSesame/blob/master/setup-mac.py"&gt;here&lt;/a&gt; if you'd rather see that. &lt;/p&gt;
+&lt;p&gt;The important variables here are &lt;code&gt;packages&lt;/code&gt;, which contains the folders of your module that will be copied to the site-packages folder of python in your environment, and &lt;code&gt;scripts&lt;/code&gt; which contains the files with which your program (or parts thereof) can be started (i.e. the entry point of your program). The files specified at &lt;code&gt;scripts&lt;/code&gt; will be copied to the bin/ folder of the anaconda environment. &lt;/p&gt;
+&lt;p&gt;To give an example, the OpenSesame entry point script merely contains:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;#-*- coding:utf-8 -*-&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;libqtopensesame&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt;
+    &lt;span class="n"&gt;__main__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;opensesame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You might have noticed the &lt;code&gt;.py&lt;/code&gt; extensions are missing from files that we specified at &lt;code&gt;scripts&lt;/code&gt;. By specifying &lt;code&gt;#!/usr/bin/env python&lt;/code&gt; at the very first line of the file, your OS recognizes it as a python file even if you leave away the &lt;code&gt;.py&lt;/code&gt; extension.&lt;/p&gt;
+&lt;p&gt;Don't forget to activate your environment before you install your app. Otherwise your app will install into the main anaconda installation. You can activate environments by calling the &lt;code&gt;source activate &amp;lt;environment-name&amp;gt;&lt;/code&gt; command. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source activate OpenSesame
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If all goes well, a &lt;code&gt;[OpenSesame]&lt;/code&gt; label should be prepended in front of your terminal prompt. Now you can call:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python setup.py install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to install everything. If you want to exit the virtual environment again, you can do so by simply calling&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After this step, the environment plus your app are ready to be packaged into an OS X app. &lt;/p&gt;
+&lt;h2&gt;Create the .app framework&lt;/h2&gt;
+&lt;p&gt;You wouldn't know unless you are a (fanatic) terminal user, but a Mac OS X app is nothing more than a folder that has .app as extension. The internal structure and contents of this folder are bound to some specifications: &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;One thing that always needs to be there is the &lt;strong&gt;Contents/MacOS&lt;/strong&gt; folder which contains the script or executable file that starts your application. The name of this file should be the same as the one of your app, minus the .app extension.&lt;/li&gt;
+&lt;li&gt;An &lt;em&gt;Info.plist&lt;/em&gt; file, located at &lt;strong&gt;Contents/Info.plist&lt;/strong&gt;, which contains extra information about the app (author, version, etc.), If this file is not present when the app is started for the first time, MacOS will create a default one for you, but it is so generic that it often leaves much to be desired.&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Contents/Resources&lt;/strong&gt; folder, which contains all other files your app depends on, such as images or sounds, but they can be virtually anything, such as a complete anaconda environment, as you will see.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So, the basic structure of our OpenSesame app looks like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We'll leave these two files (OpenSesame and Info.plist) empty for now.&lt;/p&gt;
+&lt;p&gt;Not to sound pedantic, but be sure to create the .app folder at a different location than inside the Anaconda environment you are going to package.&lt;/p&gt;
+&lt;h2&gt;Copy the Anaconda environment&lt;/h2&gt;
+&lt;p&gt;Now that you have the app skeleton all set up, you can copy the anaconda environment into it. You can copy the contents of the environment folder entirely to the &lt;code&gt;Resources&lt;/code&gt; folder of your app. In our example case, I also named my virtual environment &lt;em&gt;OpenSesame&lt;/em&gt;, which resulted in the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp -R ~/anaconda/envs/Opensesame/* ~/app-output/OpenSesame.app/Contents/Resources/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;where app-output is the folder in which I created the app skeleton for the OpenSesame.app in this example. You can of course also just drag and drop all files using Finder if you like, although it skips hidden files and folders, so the safest way is to just copy everything using the &lt;code&gt;cp&lt;/code&gt; command in the terminal (although hidden items are not really used in anaconda environments as far as I know).&lt;/p&gt;
+&lt;p&gt;If everything went ok, your app structure should look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+            bin/
+            conda-meta/
+            imports/
+            include/
+            lib/
+            mkspecs/
+            plugins/
+            python
+            share/
+            ssl/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There might be some deviations, because a few conda packages can install some of their dependencies at the root level of the environment, or things have changed in conda versions that were released later than this article. Furthermore, the folder containing your apps modules should also be present if you have chosen option 1 of integrating your app into the environment (i.e. copy everything directly into the environment, instead of using setup script). Thus, if things look a little bit differently than shown above, don't fret: as long as you have copied all content of the target environment's folder, you should be ok.&lt;/p&gt;
+&lt;p&gt;Now everything is placed where it should be, there are two things left to do.&lt;/p&gt;
+&lt;h2&gt;Create the app's entry script&lt;/h2&gt;
+&lt;p&gt;At this point, it is time to write the contents of the executable in &lt;em&gt;Contents/MacOS&lt;/em&gt;, in this example case &lt;em&gt;Contents/MacOS/OpenSesame&lt;/em&gt;. This will be a simple bash script that calls the Python interpreter inside the anaconda environment that you just copied, and passes it the path to the entry point  of your program as an argument. So if you chose option one to integrate your program into the Anaconda environment, the contents should look (something) like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class="nv"&gt;script_dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;dirname &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;dirname &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;$script_dir&lt;/span&gt;/Resources/bin/python &lt;span class="nv"&gt;$script_dir&lt;/span&gt;/Resources/MyApp/myapp.py &lt;span class="nv"&gt;$@&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The second line simply saves the location of your &lt;em&gt;Contents&lt;/em&gt; folder by going up a folder (we are in Contents/MacOS now). The third line calls the python interpreter inside the .app from this location, with your program's entry-point script as an argument. The &lt;code&gt;$@&lt;/code&gt; at the end of this line is supposed to pass all other command line arguments to your script as well, but this hasn't worked for me. Most likely OS X wraps extra arguments with a &lt;code&gt;--args&lt;/code&gt; flag, but I'm not sure.&lt;/p&gt;
+&lt;p&gt;If you installed the app using a &lt;code&gt;setup.py&lt;/code&gt; script, you should let this argument point to your entry script in the bin/ folder. In the context of our example OpenSesame app, this would become:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env bash&lt;/span&gt;
+&lt;span class="nv"&gt;script_dir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;dirname &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;dirname &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;$script_dir&lt;/span&gt;/Resources/bin/python &lt;span class="nv"&gt;$script_dir&lt;/span&gt;/Resources/bin/opensesame &lt;span class="nv"&gt;$@&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Of course you need to replace &lt;code&gt;opensesame&lt;/code&gt; with the name of your program.&lt;/p&gt;
+&lt;p&gt;Don't forget to make the entry script &lt;em&gt;executable&lt;/em&gt; by issuing the command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod a+x &amp;lt;extecutable_file&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;so in our example case that would be the command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod a+x OpenSesame.app/Contents/MacOS/OpenSesame
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;from the folder in which OpenSesame.app is located.&lt;/p&gt;
+&lt;p&gt;You can already try out if it works, by double-clicking your app in finder, or starting the app from the command line by issuing the command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;OpenSesame.app/Contents/MacOS/OpenSesame
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;from the terminal, with the current working directory being te folder in which the .app is located. This is useful for debugging, for instance if your app seems to launch but closes shortly after with no further notification. When started from the terminal, any error output is printed there.&lt;/p&gt;
+&lt;h2&gt;Create the contents of Info.plist&lt;/h2&gt;
+&lt;p&gt;A Mac OS X app is required to have an &lt;code&gt;Info.plist&lt;/code&gt; file, which contains extra information about the app, such as its version, author, and so on. There are a couple of fields that are mandatory, but a lot of them are optional. You'll do yourself a favor however to put as much information about your app in the Info.plist as you can. For instance, if you specify the file extensions that your app can handle (not mandatory), OS X will automatically let these filetypes be opened by your app if a user double clicks such files in Finder (although I have neither had much success with this: my app starts, but the file is not loaded. Probably this is because OS X works with events that signal a file needs to be opened, instead of passing the path simply as a command line argument on opening). If the extension is not unique to your app, it will appear in the list of apps that could open the file, if you click on it and select "Open With" in Finder. Pretty neat.&lt;/p&gt;
+&lt;p&gt;Don't be fooled by the .plist extension; it is just an .xml file that you can open with any text editor. Here is what the one I generated for OpenSesame looks like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;!DOCTYPE plist PUBLIC &amp;quot;-//Apple//DTD PLIST 1.0//EN&amp;quot; &amp;quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;plist&lt;/span&gt; &lt;span class="na"&gt;version=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleDevelopmentRegion&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;en&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleDisplayName&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;OpenSesame&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleDocumentTypes&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleTypeIconFile&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;opensesame.icns&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleTypeName&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;OpenSesame experiment&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleTypeRole&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Editor&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;LSHandlerRank&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;Owner&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;LSItemContentTypes&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;nl.cogsci.osdoc.osexp&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSExportableTypes&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;nl.cogsci.osdoc.osexp&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleExecutable&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;OpenSesame&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleIconFile&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;opensesame.icns&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleIdentifier&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;nl.cogsci.osdoc&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleInfoDictionaryVersion&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;6.0&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleName&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;OpenSesame&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundlePackageType&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;APPL&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleShortVersionString&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;3.1.6&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleSignature&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;????&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;CFBundleVersion&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;3.1.6 Jazzy James&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;LSMinimumSystemVersion&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;10.7.0&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;LSUIElement&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;false/&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSAppTransportSecurity&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSAllowsArbitraryLoads&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSHighResolutionCapable&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSHumanReadableCopyright&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;© 2017 Sebastiaan Mathôt&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSMainNibFile&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;MainMenu&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;NSPrincipalClass&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;NSApplication&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UTExportedTypeDeclarations&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UTTypeConformsTo&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;org.gnu.gnu-zip-archive&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UTTypeDescription&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;OpenSesame experiment&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UTTypeIdentifier&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;nl.cogsci.osdoc.osexp&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;UTTypeTagSpecification&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;public.filename-extension&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;osexp&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;key&amp;gt;&lt;/span&gt;public.mime-type&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;application/gzip&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Each configurable option consists of variable name between the &lt;code&gt;&amp;lt;key&amp;gt;&lt;/code&gt; tags, and its value between the &lt;code&gt;&amp;lt;string&amp;gt;&lt;/code&gt; tags. There are a lot of options (most of which have self-explanatory variable names), so I'm not going to elaborate on them any further here. You can find a full list of options and their descriptions &lt;a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-SW1"&gt;at Apple's documentation site&lt;/a&gt;. The ones that you definitely want to specify are the entries that correctly identify your app (&lt;code&gt;CFBundleName&lt;/code&gt;, &lt;code&gt;CFBundleDisplayName&lt;/code&gt;, &lt;code&gt;CFBundleVersion&lt;/code&gt;, &lt;code&gt;CFBundleShortVersionString&lt;/code&gt;) and the ones that identify you as the author of the app (&lt;code&gt;NSHumanReadableCopyright&lt;/code&gt;, &lt;code&gt;CFBundleIdentifier&lt;/code&gt;). If you don't want the name of the executable to be the same as that of the app (I can't think of any reason), you can specify a different name with &lt;code&gt;CFBundleExecutable&lt;/code&gt;. The final field that you probably want to specify is &lt;code&gt;CFBundleIconFile&lt;/code&gt;, which specifies the path to your icon file (.icns) as resolved from the Resources folder. If you eventually want to get your app into the app store, it's a start to make sure that your icon has the required minimal resolution of 1024x1024px.&lt;/p&gt;
+&lt;p&gt;There is a python-based tool called &lt;a href="https://bitbucket.org/wooster/biplist"&gt;biplist&lt;/a&gt; which makes generating and editing .plist files a lot easier, so that may be worth a look too.&lt;/p&gt;
+&lt;h2&gt;Clean up (optional)&lt;/h2&gt;
+&lt;p&gt;Of course, there are some files that we don't need when the anaconda environment is packaged inside our app, so the next step will be removing those files. This step is entirely optional. The risk of actually breaking things is quite large, because I'm not 100% certain that all files and folders I remove here are never needed (but this action never broke my apps though, so that might be regarded a small reassurance). Nevertheless, removing unnecessary item can reduce the size of your app quite a bit, so it is probably worth experimenting with.&lt;/p&gt;
+&lt;p&gt;Let's start with the /bin folder. If you navigate into this folder inside the Resources folder of the app, you will see that there are a lot of other apps and excutables there; some of which have a considerable file size. Generally you won't need the majority of the files you find here (except the ones necessary to run Python of course), but to be safe I usually leave most of them in there and just focus on the really large files which blow up the size of the app. If your app has Qt as a dependency, you are free to delete all the qt apps that you find in the bin folder (an .app inside in .app is completely useless), in addition to large non-app executables such as &lt;code&gt;qmake&lt;/code&gt;, &lt;code&gt;qdoc3&lt;/code&gt;, &lt;code&gt;qt3to4&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Next, we are going to delete all files an folders that are only relevant when you are using anaconda to build Python modules or 'conda packages', which you probably are not going to do when the evironment is encapsulated in an app. Two of such folders are &lt;code&gt;mkspecs&lt;/code&gt; (build information for qt) and &lt;code&gt;include&lt;/code&gt; (C header files of modules present in the environment). The other one is &lt;code&gt;conda-meta&lt;/code&gt;. If you remove these folders, you are left with&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;OpenSesame.app/
+    Contents/
+        MacOS/
+            OpenSesame
+        Info.plist
+        Resources/
+            bin/
+            imports/
+            lib/
+            plugins/
+            python
+            share/
+            ssl/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Possibly you could slim down your package even further, but that is up to you. The remaining files and folders probably are not really that large, so it's likely not the effort to spend too much time on this.&lt;/p&gt;
+&lt;h2&gt;Le moment suprême&lt;/h2&gt;
+&lt;p&gt;That's all there is to it. Double click the app in Finder and see if it works. If nothing happened, or you receive an error message, you can always start your app from the terminal and see if it prints any error message there:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/app-output/OpenSesame.app/Contents/MacOS/OpenSesame
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Your app should now be up and running. I'm curious what you think of this transparent and easy, but very unconventional way of creating an app.&lt;/p&gt;
+&lt;h2&gt;Why not create a script for all this?&lt;/h2&gt;
+&lt;p&gt;Well, I have. You can find a (configurable and customizable) script that does everything described above (and more) &lt;a href="https://github.com/dschreij/anaconda-env-to-osx-app"&gt;on github&lt;/a&gt;. In the future, I hope to provide better documentation on its usage soon (famous last words...), but at the moment it is still evolving too quickly and changes a lot each time I work on it. You should therefore regard the script as a 'proof of concept' and working example than something that is directly ready to use.&lt;/p&gt;</content><category term="Anaconda"></category><category term="Python"></category><category term="Mac OS X"></category><category term="Packaging"></category></entry></feed>
