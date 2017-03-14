@@ -2,7 +2,7 @@ Title: OpenSesame Online
 Slug: opensesame-online
 Category: projects
 Authors: Daniel Schreij
-Date: 2016-07-06 23:56
+Date: 2017-07-06 23:56
 Image: /images/projects/osonline.png
 Banner: /images/projects/osonline.png
 Featured: yes
