@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>OpenSesame Online - Dr. D</title>
+    <title>Mediadecoder - Dr. D</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,17 +9,17 @@
 
 
 
-<link rel="canonical" href="https://dschreij.github.io/projects/opensesame-online">
+<link rel="canonical" href="https://dschreij.github.io/projects/python-mediadecoder">
 
         <meta name="author" content="Daniel Schreij" />
-        <meta name="description" content="A platform for running experiments created with OpenSesame in web browsers." />
+        <meta name="description" content="A media decoder libraray for python" />
 
         <meta property="og:site_name" content="Dr. D" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="OpenSesame Online"/>
-        <meta property="og:url" content="https://dschreij.github.io/projects/opensesame-online"/>
-        <meta property="og:description" content="A platform for running experiments created with OpenSesame in web browsers."/>
-        <meta property="article:published_time" content="2017-07-06" />
+        <meta property="og:title" content="Mediadecoder"/>
+        <meta property="og:url" content="https://dschreij.github.io/projects/python-mediadecoder"/>
+        <meta property="og:description" content="A media decoder libraray for python"/>
+        <meta property="article:published_time" content="2017-03-14" />
             <meta property="article:section" content="projects" />
             <meta property="article:author" content="Daniel Schreij" />
 
@@ -80,10 +80,10 @@ Dr. D            </a>
         <header class="page-header">
             <h1 class='entry-title white'>
                 <a 
-                    href="https://dschreij.github.io/projects/opensesame-online"
+                    href="https://dschreij.github.io/projects/python-mediadecoder"
                     rel="bookmark"
-                    title="Permalink to OpenSesame Online">
-                    OpenSesame Online
+                    title="Permalink to Mediadecoder">
+                    Mediadecoder
                 </a>
             </h1>
         </header>
@@ -91,28 +91,40 @@ Dr. D            </a>
         <div 
             id='article-banner-image'
             class='full-width absolute backdrop hidden-xs hidden-sm hidden-md'
-            style='background-image: url("/images/projects/osonline.png")'
+            style='background-image: url("/images/projects/mediadecoder.jpg")'
         >
             <div class="fader"></div>
         </div>
 <!-- End Banner -->
 <div id="main" class="container">
     <div class="row">
-        <div class="col-lg-12 opaque">
+        <div class="col-lg-9 opaque" >
             <div style="min-height: 65vh">
     <section id="content">
         <article>
             <div class="entry-content content-padding">
-                <p>At the moment I'm mainly involved in assisting the development of <a href="http://osdoc.cogsci.nl">OpenSesame</a>: An open-source experiment builder for the social sciences. </p>
-<p>Our current project is the development of OpenSesame Online, which is a runtime for experiments created with OpenSesame that enables them to be run in a web browser. </p>
-<p>This project is very actively developed, and hopefully I there is more to show soon. In the meantime, this youtube video made by <a href="http://cogsci.nl/smathot">Sebastiaan Mathôt</a> should give a nice impression of what's coming:</p>
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bYW0sy_KAx4" allowfullscreen></iframe>
-</div>
+                <p>Python mediadecoder is a library that decodes video (and in the future also stand-alone audio) files of any popular modern format. The decoder enables you to easily build your own video player in Python and incorporate it into your own application. Mediadecoder delivers you each video frame as a string or numpy array, which you can then render on a texture or display with any other method that you see fit. Sound playback is done with help of the <a href="https://people.csail.mit.edu/hubert/pyaudio/">pyaudio</a> or <a href="https://python-sounddevice.readthedocs.io/en/0.3.7/">sounddevice</a> libraries.</p>
+<p>One purpose for which this library is already used is the <a href="https://github.com/dschreij/opensesame-plugin-mediaplayer">media_player_mpy</a> player for the OpenSesame experiment builder.</p>
+<p>Under the hood, python-mediadecoder currently uses <a href="http://zulko.github.io/moviepy/">moviepy</a> and <a href="https://imageio.github.io/">imageio</a> for the actual heavy-lifting, which in turn use the popular FFMPeg library. Implementations that can also use <a href="https://gstreamer.freedesktop.org/modules/gst-python.htmlpy">GStreamer 1.x</a> and <a href="https://mikeboers.github.io/PyAV/">pyav</a> are planned for the future.</p>
             </div>
         </article>
     </section>
             </div>
+        </div>
+        <div class="col-lg-3 opaque">
+    <div id="sidebar" class="sidebar-info sidebar-margin">
+        <div class="row">
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" href="https://github.com/dschreij/python-mediadecoder" target="_SELF">
+                <i class='fa fa-github'></i> Github</a>
+            </div>
+           
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                <a class="btn btn-primary" href="http://dschreij.github.io/python-mediadecoder/" target="_SELF">
+                <i class='fa fa-book'></i> Documentation</a>
+            </div>
+        </div>
+    </div>
         </div>
     </div>
 </div>
